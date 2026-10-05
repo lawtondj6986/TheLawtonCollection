@@ -1,0 +1,75 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useId, useState } from "react";
+
+type Item = { href: string; label: string };
+
+export function MobileMenu({ items, phone }: { items: readonly Item[]; phone?: string }) {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const panelId = useId();
+
+  useEffect(() => setOpen(false), [pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  return (
+    <div className="md:hidden">
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={() => setOpen((value) => !value)}
+        className="inline-flex min-h-11 items-center gap-2 border border-navy/30 px-3.5 text-sm font-semibold tracking-wide text-navy"
+      >
+        {open ? "Close" : "Menu"}
+        <span aria-hidden className="flex w-4 flex-col gap-[3px]">
+          <span className={`h-px bg-navy transition ${open ? "translate-y-[4px] rotate-45" : ""}`} />
+          <span className={`h-px bg-navy transition ${open ? "opacity-0" : ""}`} />
+          <span className={`h-px bg-navy transition ${open ? "-translate-y-[4px] -rotate-45" : ""}`} />
+        </span>
+      </button>
+      <nav
+        id={panelId}
+        aria-label="Main"
+        hidden={!open}
+        className="absolute inset-x-0 top-full z-40 border-y border-line bg-salt px-5 pb-6 shadow-[0_12px_24px_-18px_rgba(11,31,51,0.35)]"
+      >
+        <ul className="divide-y divide-line">
+          {items.map((item) => {
+            const current = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            return (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  aria-current={current ? "page" : undefined}
+                  className={`block py-3.5 text-lg ${current ? "font-semibold text-navy" : "text-ink"}`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+        <Link
+          href="/contact"
+          className="mt-4 flex min-h-12 items-center justify-center bg-navy font-semibold text-salt"
+        >
+          Talk with Michelle
+        </Link>
+        {phone ? (
+          <a href={`tel:${phone.replace(/[^\d+]/g, "")}`} className="mt-3 block text-center text-navy">
+            Call or text {phone}
+          </a>
+        ) : null}
+      </nav>
+    </div>
+  );
+}

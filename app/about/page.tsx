@@ -1,0 +1,111 @@
+import { Container, ButtonLink, Rule } from "@/components/ui";
+import { Monogram } from "@/components/Monogram";
+import { pageMeta } from "@/lib/metadata";
+import { site } from "@/lib/site";
+
+export const metadata = pageMeta({
+  title: "About",
+  description:
+    "Michelle Lawton grew up in Brockton and helps families buy and sell homes in Falmouth, the Upper Cape, and across the South Shore.",
+  path: "/about",
+});
+
+// Quiet panel after public/brand/02-name-lockup.jpg (navy field mark).
+function PrimaryMarkPanel() {
+  return (
+    <div className="flex aspect-[2/3] w-full flex-col items-center justify-center bg-navy px-6 text-center">
+      <Monogram className="h-36 w-auto text-brass sm:h-44" />
+      <p className="mt-10 font-serif text-[1.35rem] tracking-[0.16em] text-salt uppercase sm:text-[1.6rem]">
+        {site.brand}
+      </p>
+      <p className="mt-3 font-serif text-[1.05rem] text-brass sm:text-[1.15rem]">
+        {site.name} · {site.region}
+      </p>
+      <span aria-hidden className="mt-7 block h-px w-40 bg-brass/70" />
+    </div>
+  );
+}
+
+// Family card after public/brand/06-business-cards.jpg.
+function FamilyCard() {
+  return (
+    <div className="mx-auto max-w-xl border border-line bg-white px-6 py-12 text-center text-navy sm:px-12">
+      <Monogram className="mx-auto h-14 w-auto text-navy" />
+      <p className="mt-5 font-serif text-[1.05rem] tracking-[0.18em] uppercase">{site.brand}</p>
+      <span aria-hidden className="mx-auto mt-4 block h-px w-14 bg-navy/60" />
+      <p className="mt-4 font-serif text-[2.6rem] leading-none">{site.name}</p>
+      <p className="mt-2 font-serif text-[1.1rem] tracking-[0.2em]">real estate</p>
+      <span aria-hidden className="mx-auto mt-4 block h-px w-14 bg-navy/60" />
+      <p className="mt-4 font-serif text-[1.3rem]">Cape Cod and the South Shore</p>
+      <p className="mt-2 font-serif text-[1.3rem]">Brockton native</p>
+      <span aria-hidden className="mx-auto mt-6 block h-px w-10 bg-brass" />
+      <p className="mt-6 font-serif text-[1.15rem] leading-snug text-ink/85">
+        Family counsel:
+        <br />
+        Richard Lawton, attorney,
+        <br />
+        real estate closings and estates,
+        <br />
+        Brockton.
+      </p>
+    </div>
+  );
+}
+
+export default function AboutPage() {
+  return (
+    <>
+      <Container className="grid gap-12 pt-14 pb-16 sm:pt-20 md:grid-cols-[1fr_22rem] md:gap-16 lg:grid-cols-[1fr_26rem]">
+        <div>
+          <p className="eyebrow">About Michelle</p>
+          <h1 className="mt-4 text-[2.6rem] sm:text-6xl">Brockton roots. Straight advice.</h1>
+          <Rule className="mt-7" />
+          <div className="prose-quiet mt-8 max-w-2xl text-lg text-ink/90">
+            <p>
+              I grew up in Brockton. I learned early that a house is usually the biggest thing a family will ever
+              buy, and that people deserve someone who will tell them the truth about it.
+            </p>
+            <p>
+              Today I help people buy and sell on the South Shore and on Cape Cod, mostly in Falmouth and the Upper
+              Cape. Some of my clients are buying their first place in Brockton. Some are selling a house that has
+              been in the family for fifty years. Some are moving between the two. I give all of them the same
+              thing: a clear plan, an honest price, and a phone that gets answered.
+            </p>
+            <p>
+              I work with a lot of people who work shifts, including nurses, firefighters, police officers, and
+              teachers. I plan around your schedule. And when a waterfront home comes my way, it gets the same care
+              and the same straight talk as a three-bedroom on the West Side.
+            </p>
+          </div>
+
+          <div className="mt-12 max-w-2xl border-l-2 border-brass pl-6">
+            <h2 className="text-[1.9rem]">Family counsel</h2>
+            <p className="mt-3 text-ink/85">
+              My husband, Richard Lawton, is an attorney in Brockton. He helps families with real estate closings and
+              with estates, and some of my clients choose to work with him for that part of the process. You are
+              always free to choose your own attorney. Richard is not a listing agent and is not part of my real
+              estate business.
+            </p>
+          </div>
+
+          <div className="mt-12 flex flex-wrap gap-3">
+            <ButtonLink href="/contact">Talk with Michelle</ButtonLink>
+            <ButtonLink href="/home-value" variant="secondary">
+              What is my home worth?
+            </ButtonLink>
+          </div>
+        </div>
+
+        <aside aria-label="The Lawton Collection mark" className="md:pt-4">
+          <PrimaryMarkPanel />
+        </aside>
+      </Container>
+
+      <section aria-label="Michelle's card" className="border-t border-line bg-sand/60 py-16 sm:py-20">
+        <Container>
+          <FamilyCard />
+        </Container>
+      </section>
+    </>
+  );
+}

@@ -1,0 +1,230 @@
+import Image from "next/image";
+import Link from "next/link";
+import { Container, ButtonLink, Rule } from "@/components/ui";
+import { Monogram } from "@/components/Monogram";
+import { ListingCard } from "@/components/Cards";
+import { SubscribeForm } from "@/components/SubscribeForm";
+import { images } from "@/content/images";
+import { brockton, southShoreTowns, villages } from "@/content/places";
+import { getListings } from "@/lib/listings";
+import { pageMeta } from "@/lib/metadata";
+import { site } from "@/lib/site";
+
+export const metadata = {
+  ...pageMeta({
+    title: "Cape Cod & the South Shore",
+    description:
+      "Michelle Lawton helps families buy and sell homes in Falmouth, the Upper Cape, Brockton, and the South Shore. Brockton roots. Straight advice.",
+    path: "/",
+  }),
+  title: { absolute: `${site.name} · ${site.brand}` },
+};
+
+// Hero overlay, after public/brand/04-two-shores.jpg (the home composition).
+function HeroLockup() {
+  return (
+    <div className="text-salt">
+      <Monogram className="h-16 w-auto text-brass-light md:h-20" />
+      <span aria-hidden className="mt-4 block h-px w-24 bg-brass-light/80" />
+      <h1 className="mt-4 font-serif text-[2.35rem] leading-none font-medium tracking-[0.1em] text-salt uppercase sm:text-5xl lg:text-[3.5rem]">
+        {site.name}
+      </h1>
+      <p className="mt-2.5 font-serif text-[1.6rem] leading-tight italic sm:text-[1.9rem]">{site.brand}</p>
+      <span aria-hidden className="mt-4 block h-px w-20 bg-brass-light/80" />
+      <p className="mt-4 font-serif text-[1.4rem] leading-tight sm:text-[1.6rem]">Cape Cod and the South Shore</p>
+      <p className="mt-1.5 font-serif text-[1.4rem] leading-tight text-brass-light italic sm:text-[1.6rem]">{site.line}</p>
+      <Link
+        href="/contact"
+        className="mt-7 inline-flex min-h-12 items-center gap-3 border border-brass-light bg-navy/30 px-6 text-[0.9rem] font-semibold tracking-[0.14em] text-salt uppercase transition-colors hover:bg-salt hover:text-navy"
+      >
+        Talk with Michelle <span aria-hidden>→</span>
+      </Link>
+    </div>
+  );
+}
+
+export default function HomePage() {
+  const listings = getListings().slice(0, 2);
+
+  return (
+    <>
+      {/* Hero. Desktop: overlay lower left, as in the reference. Mobile: the
+          photo is cropped to the porch and the lockup sits below it on navy,
+          so the name and button never cover the house. */}
+      <section aria-label="Introduction" className="relative bg-navy">
+        <div className="relative aspect-[4/3] sm:aspect-[16/9] md:aspect-auto md:h-[540px] lg:h-[580px]">
+          <Image
+            src={images.hero.src}
+            alt={images.hero.alt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[78%_50%] md:object-[60%_30%]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 hidden md:block"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(11,31,51,0.72) 0%, rgba(11,31,51,0.45) 32%, rgba(11,31,51,0) 58%)",
+            }}
+          />
+          <div className="absolute inset-x-0 bottom-0 hidden md:block">
+            <Container className="pb-12 lg:pb-14">
+              <HeroLockup />
+            </Container>
+          </div>
+        </div>
+        <Container className="py-10 md:hidden">
+          <HeroLockup />
+        </Container>
+      </section>
+
+      {/* Proof line and second action, at the fold. */}
+      <section aria-label="About Michelle" className="border-b border-line bg-salt">
+        <Container className="flex flex-col gap-4 py-6 md:flex-row md:items-center md:justify-between">
+          <p className="text-[1.05rem] text-ink">
+            <span className="font-semibold text-navy">Brockton native.</span> Helping families buy and sell on Cape Cod
+            and the South Shore, from a first home in Brockton to a family house in West Falmouth.
+          </p>
+          <Link href="/home-value" className="shrink-0 font-semibold text-navy">
+            <span className="border-b border-brass">What is my home worth?</span> <span aria-hidden>→</span>
+          </Link>
+        </Container>
+      </section>
+
+      {/* Two shores, after public/brand/08-social-frame.jpg. Equal paths. */}
+      <section aria-labelledby="two-shores" className="py-20 sm:py-24">
+        <Container>
+          <div className="max-w-2xl">
+            <p className="eyebrow">Two shores</p>
+            <h2 id="two-shores" className="mt-3 text-4xl sm:text-5xl">
+              Where are you buying or selling?
+            </h2>
+          </div>
+          <div className="mt-12 grid gap-10 md:grid-cols-2 md:gap-6">
+            <ShoreCard
+              href="/south-shore"
+              caption="South Shore"
+              image={images.southShoreStreet}
+              places={[brockton.name, ...southShoreTowns.map((t) => t.name)]}
+              line="Brockton first, and the towns around it."
+            />
+            <ShoreCard
+              href="/cape-cod"
+              caption="Cape Cod"
+              image={images.capeShore}
+              places={["Falmouth", ...villages.map((v) => v.name)]}
+              line="Falmouth and the Upper Cape."
+            />
+          </div>
+        </Container>
+      </section>
+
+      <section aria-labelledby="how" className="border-y border-line bg-sand/60 py-20 sm:py-24">
+        <Container>
+          <p className="eyebrow">How Michelle works</p>
+          <h2 id="how" className="mt-3 max-w-2xl text-4xl sm:text-5xl">
+            A known local person who tells you the truth about a house.
+          </h2>
+          <div className="mt-12 grid gap-10 md:grid-cols-3">
+            {[
+              {
+                title: "A straight answer on price",
+                body: "If your house needs work before it sells, you will hear it from Michelle first. If it doesn't, she'll tell you that too.",
+              },
+              {
+                title: "Your schedule, not hers",
+                body: "Nurses, firefighters, police officers, teachers: shifts don't stop for open houses. Early, late, and weekend showings are normal.",
+              },
+              {
+                title: "One call for both shores",
+                body: "Moving from Brockton to the Cape, or from the Cape back toward family? Michelle knows both markets and the people in them.",
+              },
+            ].map((item) => (
+              <div key={item.title}>
+                <Rule />
+                <h3 className="mt-5 text-[1.75rem]">{item.title}</h3>
+                <p className="mt-3 text-ink/85">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section aria-labelledby="collection" className="py-20 sm:py-24">
+        <Container>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="eyebrow">The Collection</p>
+              <h2 id="collection" className="mt-3 text-4xl sm:text-5xl">
+                Homes Michelle is representing
+              </h2>
+            </div>
+            <Link href="/collection" className="font-semibold text-navy">
+              <span className="border-b border-brass">See the Collection</span> <span aria-hidden>→</span>
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {listings.map((listing) => (
+              <ListingCard key={listing.slug} listing={listing} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section aria-labelledby="letter" className="pb-4">
+        <Container className="grid gap-10 border-t border-brass pt-16 md:grid-cols-2 md:items-center">
+          <div>
+            <p className="eyebrow">Market letter</p>
+            <h2 id="letter" className="mt-3 text-4xl sm:text-5xl">
+              A plain-spoken letter on both markets.
+            </h2>
+            <p className="mt-5 max-w-md text-ink/85">
+              What sold, what sat, and what it means for your street. Michelle is preparing the first letter now.
+              No spam, and you can leave any time.
+            </p>
+          </div>
+          <div className="border border-line bg-white p-6 sm:p-8">
+            <SubscribeForm source="/" />
+          </div>
+        </Container>
+      </section>
+    </>
+  );
+}
+
+function ShoreCard({
+  href,
+  caption,
+  image,
+  places,
+  line,
+}: {
+  href: string;
+  caption: string;
+  image: { src: string; alt: string };
+  places: string[];
+  line: string;
+}) {
+  return (
+    <Link href={href} className="group block">
+      <div className="relative aspect-[4/5] overflow-hidden bg-sand sm:aspect-[3/4] md:aspect-[4/5]">
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes="(min-width: 768px) 50vw, 100vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+        />
+      </div>
+      <h3 className="mt-5 text-[2.3rem]">{caption}</h3>
+      <p className="mt-1 text-ink/85">{line}</p>
+      <p className="mt-2 text-[0.95rem] text-shingle-deep">{places.join(" · ")}</p>
+      <p className="mt-4 font-semibold text-navy">
+        <span className="border-b border-brass/70 group-hover:border-navy">Explore the {caption}</span>
+        <span aria-hidden> →</span>
+      </p>
+    </Link>
+  );
+}
