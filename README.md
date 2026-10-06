@@ -21,17 +21,18 @@ With no Supabase or Resend keys the site still runs. Form submissions are valida
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | public | Canonical URL, used for metadata, the sitemap and Open Graph. Defaults to `https://thelawtoncollection.com`. |
 | `NEXT_PUBLIC_BROKERAGE_NAME` | public | Brokerage shown in the footer (required by Massachusetts advertising rules). Defaults to "Brokerage name on file". |
-| `NEXT_PUBLIC_PHONE` | public | Michelle's phone. Hidden everywhere when blank. |
+| `NEXT_PUBLIC_PHONE` | public | Phone as displayed. Defaults to `508-942-1180`. |
+| `NEXT_PUBLIC_PHONE_TEL` | public | Phone for `tel:` links. Defaults to `+15089421180`. |
+| `NEXT_PUBLIC_EMAIL` | public | Public email for the header menu, footer, contact and About pages. Defaults to `Michelle.lawton@comcast.net`. |
 | `NEXT_PUBLIC_LICENSE` | public | License number for the footer. Hidden when blank. |
-| `NEXT_PUBLIC_EMAIL` | public | Public email for the footer and contact page. Hidden when blank. |
 | `SUPABASE_URL` | server | Supabase project URL. |
 | `SUPABASE_SERVICE_ROLE_KEY` | server | Service-role key. **Server only, never add `NEXT_PUBLIC_`.** |
-| `RESEND_API_KEY` | server | Resend key. Email is skipped when blank. |
-| `LEAD_TO_EMAIL` | server | Where lead notifications go. Use commas for more than one address. Email is skipped when blank. |
+| `RESEND_API_KEY` | server | Resend key. Email is skipped when blank; leads are still stored. |
+| `LEAD_TO_EMAIL` | server | Where lead notifications go. Use commas for more than one address. Defaults to `Michelle.lawton@comcast.net`. |
 | `LEAD_FROM_EMAIL` | server | Sender on a Resend-verified domain. Falls back to Resend's test sender. |
 | `RATE_LIMIT_SALT` | server | Random string that salts the hashed IP for rate limiting. |
 
-Never invent a phone number, license number, sold price or review count. If a value isn't on file, leave it blank and the row disappears.
+Never invent a license number, brokerage name, office hours, sold price or review count. If a value isn't on file, leave it blank and the row disappears.
 
 ## Supabase
 
@@ -97,7 +98,7 @@ Row level security is on with no policies, so only the server (service role) can
 - **Rate limit**: at most 5 submissions per salted, hashed IP in 10 minutes, counted across both tables. The raw IP is never stored.
 - Each lead stores its `source_page` and `market` (`cape` or `south_shore`). Listing inquiries also store the listing slug.
 - The market-letter checkbox is unchecked by default. Checking it adds the email to `subscribers`.
-- If `RESEND_API_KEY` and `LEAD_TO_EMAIL` are set, Michelle gets a plain-text email with Reply-To set to the sender.
+- If `RESEND_API_KEY` is set, Michelle gets a plain-text email at `LEAD_TO_EMAIL` with Reply-To set to the sender. Without it, the lead is still stored in Supabase and the visitor still sees the thank-you page.
 
 ## Content
 

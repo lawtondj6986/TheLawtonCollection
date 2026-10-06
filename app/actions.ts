@@ -33,10 +33,9 @@ function asSourcePage(value: string) {
   return value.startsWith("/") && !value.startsWith("//") ? value : "/";
 }
 
+// Only reached when the lead could be neither stored nor emailed.
 function unavailableMessage() {
-  return site.phone
-    ? `Something went wrong on our end. Please call or text Michelle at ${site.phone}.`
-    : "Something went wrong on our end. Please try again in a few minutes.";
+  return `Something went wrong on our end. Please call Michelle at ${site.phone} or email ${site.email}.`;
 }
 
 async function userAgent() {

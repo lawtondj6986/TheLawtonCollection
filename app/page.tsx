@@ -8,7 +8,7 @@ import { images } from "@/content/images";
 import { brockton, southShoreTowns, villages } from "@/content/places";
 import { getListings } from "@/lib/listings";
 import { pageMeta } from "@/lib/metadata";
-import { site } from "@/lib/site";
+import { site, telHref } from "@/lib/site";
 
 export const metadata = {
   ...pageMeta({
@@ -39,6 +39,15 @@ function HeroLockup() {
       >
         Talk with Michelle <span aria-hidden>→</span>
       </Link>
+      <p className="mt-4">
+        <a
+          href={telHref}
+          aria-label={`Call Michelle at ${site.phone}`}
+          className="text-[1.05rem] font-semibold tracking-wide text-salt underline decoration-brass-light/70 underline-offset-4 select-text hover:decoration-salt"
+        >
+          {site.phone}
+        </a>
+      </p>
     </div>
   );
 }

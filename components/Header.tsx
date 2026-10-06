@@ -2,7 +2,7 @@ import { Container, ButtonLink } from "./ui";
 import { Lockup } from "./Lockup";
 import { MobileMenu } from "./MobileMenu";
 import { NavLinks } from "./NavLinks";
-import { nav, site, telHref } from "@/lib/site";
+import { mailHref, nav, site, telHref } from "@/lib/site";
 
 export function Header() {
   return (
@@ -15,17 +15,27 @@ export function Header() {
       </a>
       <Container className="flex items-center justify-between gap-4 py-4 sm:py-6">
         <Lockup />
-        <div className="hidden shrink-0 flex-col items-end gap-2 lg:flex">
-          <ButtonLink href="/contact" className="min-h-11 px-5">
-            Talk with Michelle
-          </ButtonLink>
-          {site.phone ? (
-            <a href={telHref(site.phone)} className="text-[0.95rem] text-navy hover:underline">
-              {site.phone}
-            </a>
-          ) : null}
+        <div className="hidden shrink-0 items-center gap-6 md:flex">
+          <a
+            href={telHref}
+            aria-label={`Call Michelle at ${site.phone}`}
+            className="text-[1.05rem] font-semibold tracking-wide whitespace-nowrap text-navy select-text hover:underline"
+          >
+            {site.phone}
+          </a>
+          <div className="hidden lg:block">
+            <ButtonLink href="/contact" className="min-h-11 px-5">
+              Talk with Michelle
+            </ButtonLink>
+          </div>
         </div>
-        <MobileMenu items={nav} phone={site.phone || undefined} />
+        <MobileMenu
+          items={nav}
+          phone={site.phone}
+          phoneHref={telHref}
+          email={site.email}
+          emailHref={mailHref}
+        />
       </Container>
       <nav aria-label="Main" className="hidden border-t border-line md:block">
         <Container>

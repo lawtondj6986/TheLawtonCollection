@@ -6,7 +6,15 @@ import { useEffect, useId, useState } from "react";
 
 type Item = { href: string; label: string };
 
-export function MobileMenu({ items, phone }: { items: readonly Item[]; phone?: string }) {
+type Props = {
+  items: readonly Item[];
+  phone: string;
+  phoneHref: string;
+  email: string;
+  emailHref: string;
+};
+
+export function MobileMenu({ items, phone, phoneHref, email, emailHref }: Props) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const panelId = useId();
@@ -58,17 +66,20 @@ export function MobileMenu({ items, phone }: { items: readonly Item[]; phone?: s
             );
           })}
         </ul>
+        <div className="mt-2 space-y-1 border-t border-line pt-4">
+          <a href={phoneHref} className="block py-1.5 text-lg font-semibold text-navy select-text">
+            {phone}
+          </a>
+          <a href={emailHref} className="block py-1.5 text-[1.02rem] break-all text-navy select-text">
+            {email}
+          </a>
+        </div>
         <Link
           href="/contact"
           className="mt-4 flex min-h-12 items-center justify-center bg-navy font-semibold text-salt"
         >
           Talk with Michelle
         </Link>
-        {phone ? (
-          <a href={`tel:${phone.replace(/[^\d+]/g, "")}`} className="mt-3 block text-center text-navy">
-            Call or text {phone}
-          </a>
-        ) : null}
       </nav>
     </div>
   );

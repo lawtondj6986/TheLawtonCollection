@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Container } from "./ui";
 import { Monogram } from "./Monogram";
-import { nav, site, telHref } from "@/lib/site";
+import { mailHref, nav, site, telHref } from "@/lib/site";
 
 // Footer brand block uses the yard-sign proportion from
 // public/brand/03-home-hero.jpg: navy panel, thin brass frame, LC, name, region.
@@ -51,20 +51,19 @@ export function Footer() {
           <div>
             <p className="text-[0.78rem] font-semibold tracking-[0.18em] text-brass uppercase">Reach Michelle</p>
             <ul className="mt-4 space-y-2 text-salt/85">
-              {site.phone ? (
-                <li>
-                  <a href={telHref(site.phone)} className="hover:text-salt hover:underline">
-                    {site.phone}
-                  </a>
-                </li>
-              ) : null}
-              {site.email ? (
-                <li>
-                  <a href={`mailto:${site.email}`} className="hover:text-salt hover:underline">
-                    {site.email}
-                  </a>
-                </li>
-              ) : null}
+              <li>
+                <a href={telHref} className="text-lg font-semibold text-salt select-text hover:underline">
+                  {site.phone}
+                </a>
+              </li>
+              <li>
+                <a href={mailHref} className="break-all text-salt select-text hover:underline">
+                  {site.email}
+                </a>
+              </li>
+              <li data-slot="brokerage" className="pb-2 text-[0.92rem] text-salt/75">
+                Brokerage: <span className="text-salt">{site.brokerage}</span>
+              </li>
               <li>
                 <Link href="/contact" className="hover:text-salt hover:underline">
                   Send a note
@@ -85,9 +84,6 @@ export function Footer() {
           <div className="space-y-1.5">
             <p>
               <span className="text-salt">{site.name}</span> · Real estate
-            </p>
-            <p data-slot="brokerage">
-              Brokerage: <span className="text-salt">{site.brokerage}</span>
             </p>
             {site.license ? <p>Massachusetts license {site.license}</p> : null}
             <p>Equal Housing Opportunity.</p>

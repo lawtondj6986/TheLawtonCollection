@@ -1,7 +1,7 @@
 import { Container, ButtonLink, Rule } from "@/components/ui";
 import { Monogram } from "@/components/Monogram";
 import { pageMeta } from "@/lib/metadata";
-import { site } from "@/lib/site";
+import { mailHref, site, telHref } from "@/lib/site";
 
 export const metadata = pageMeta({
   title: "About",
@@ -77,6 +77,17 @@ export default function AboutPage() {
               and the same straight talk as a three-bedroom on the West Side.
             </p>
           </div>
+          <p className="mt-6 text-lg text-navy">
+            Call{" "}
+            <a href={telHref} className="link font-semibold select-text">
+              {site.phone}
+            </a>{" "}
+            or email{" "}
+            <a href={mailHref} className="link break-all select-text">
+              {site.email}
+            </a>
+            .
+          </p>
 
           <div className="mt-12 max-w-2xl border-l-2 border-brass pl-6">
             <h2 className="text-[1.9rem]">Family counsel</h2>
