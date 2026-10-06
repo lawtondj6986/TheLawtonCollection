@@ -1,4 +1,5 @@
-import { Container, PageHeader } from "@/components/ui";
+import { ButtonLink, Container, PageHeader } from "@/components/ui";
+import { site, telHref } from "@/lib/site";
 import { ListingCard } from "@/components/Cards";
 import { getListings } from "@/lib/listings";
 import { pageMeta } from "@/lib/metadata";
@@ -16,9 +17,12 @@ export default function CollectionPage() {
   return (
     <>
       <PageHeader eyebrow="The Collection" title="Homes for sale">
-        <p>
-          Michelle knows every house here firsthand. Each description tells you what&rsquo;s good and what needs work.
-        </p>
+        {listings.length ? (
+          <p>
+            Michelle knows every house here firsthand. Each description tells you what&rsquo;s good and what needs
+            work.
+          </p>
+        ) : null}
       </PageHeader>
       <Container>
         {hasSamples ? (
@@ -33,10 +37,19 @@ export default function CollectionPage() {
             ))}
           </div>
         ) : (
-          <p className="text-lg text-ink/90">
-            Nothing listed right now. Some homes sell before they&rsquo;re ever listed, so tell Michelle what
-            you&rsquo;re looking for.
-          </p>
+          <div className="max-w-2xl border border-line bg-white p-7 sm:p-10">
+            <p className="font-serif text-[1.9rem] leading-tight text-navy">New listings are on the way.</p>
+            <p className="mt-2 text-lg text-ink/90">
+              Some homes sell before they&rsquo;re ever listed. Tell Michelle what you&rsquo;re looking for and
+              she&rsquo;ll keep an eye out for you.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <ButtonLink href="/contact">Tell Michelle what you need</ButtonLink>
+              <a href={telHref} className="text-lg font-semibold text-navy underline decoration-brass underline-offset-4">
+                or call {site.phone}
+              </a>
+            </div>
+          </div>
         )}
       </Container>
     </>

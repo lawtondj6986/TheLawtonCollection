@@ -105,7 +105,7 @@ Row level security is on with no policies, so only the server (service role) can
 
 ## Content
 
-- **Listings**: `content/listings.ts`. Typed, manual entries. Put photos in `public/listings/<slug>/`. Until a photo file exists, the site shows a described placeholder. Delete the two `sample: true` entries before launch. `lib/listings.ts` marks where an IDX adapter would go. Cape Cod & Islands MLS and MLS PIN are separate feeds and each needs the broker's signed agreement first.
+- **Listings**: `content/listings.ts`. Typed, manual entries. Put photos in `public/listings/<slug>/`. Until a photo file exists, the site shows a described placeholder. The site shows a "new listings are on the way" message when the list is empty. `lib/listings.ts` marks where an IDX adapter would go. Cape Cod & Islands MLS and MLS PIN are separate feeds and each needs the broker's signed agreement first.
 - **Credentials**: `content/credentials.ts`. Designations and awards as shown on her CENTURY 21 profile. Add only what is on record.
 - **Villages and towns**: `content/places.ts`. Local notes only: no prices, ratings or statistics.
 - **Photography**: `content/images.ts`. Crops in `public/brand/crops/` come from the brand references in `public/brand/` (original filenames kept). These are direction images and are never shown as a listing.

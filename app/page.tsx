@@ -204,11 +204,26 @@ export default function HomePage() {
               <span className="border-b border-brass">See all homes</span> <span aria-hidden>→</span>
             </Link>
           </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {listings.map((listing) => (
-              <ListingCard key={listing.slug} listing={listing} />
-            ))}
-          </div>
+          {listings.length ? (
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
+              {listings.map((listing) => (
+                <ListingCard key={listing.slug} listing={listing} />
+              ))}
+            </div>
+          ) : (
+            <div className="mt-10 flex flex-col gap-6 border border-line bg-white p-7 sm:p-10 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-xl">
+                <p className="font-serif text-[1.9rem] leading-tight text-navy">New listings are on the way.</p>
+                <p className="mt-2 text-ink/90">
+                  Some homes sell before they&rsquo;re ever listed. Tell Michelle what you&rsquo;re looking for and
+                  she&rsquo;ll keep an eye out for you.
+                </p>
+              </div>
+              <ButtonLink href="/contact" className="shrink-0">
+                Tell Michelle what you need
+              </ButtonLink>
+            </div>
+          )}
         </Container>
       </section>
 
