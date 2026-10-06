@@ -8,7 +8,7 @@ export const faq = [
   },
   {
     q: "I work shifts. Can we still make this work?",
-    a: "Yes. Early mornings, late evenings, and weekends are normal. Call or email whenever you're off.",
+    a: "Yes. Early mornings, late evenings, and weekends are normal. Call, text, or email whenever you're off.",
   },
   {
     q: "I'm not sure I can afford to buy yet. Should I still call?",

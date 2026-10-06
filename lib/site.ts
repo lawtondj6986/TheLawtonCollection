@@ -29,6 +29,7 @@ export const site = {
 
 export const telHref = `tel:${site.phoneTel}`;
 export const mailHref = `mailto:${site.email}`;
+export const smsHref = `sms:${site.phoneTel}`;
 
 export const nav = [
   { href: "/cape-cod", label: "Cape Cod" },
