@@ -67,7 +67,8 @@ export default function HomePage() {
             src={images.hero.src}
             alt={images.hero.alt}
             fill
-            priority
+            preload
+            fetchPriority="high"
             sizes="100vw"
             className="object-cover object-[78%_50%] md:object-[60%_30%]"
           />

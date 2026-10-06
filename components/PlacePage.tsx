@@ -36,6 +36,7 @@ export function PlacePage({ place }: { place: Place }) {
             alt={image.alt}
             position={image.position}
             aspect="aspect-[16/9] md:aspect-[21/8]"
+            priority
             sizes="(min-width: 1152px) 1152px, 100vw"
           />
         </Container>
