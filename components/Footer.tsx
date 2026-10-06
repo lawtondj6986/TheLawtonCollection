@@ -42,7 +42,7 @@ export function Footer() {
               ))}
               <li>
                 <Link href="/market-report" className="text-salt/85 hover:text-salt hover:underline">
-                  Market letter
+                  Market update
                 </Link>
               </li>
             </ul>
@@ -101,8 +101,8 @@ export function Footer() {
           </div>
           <div className="space-y-1.5 md:text-right">
             <p>
-              The market letter is sent only to people who ask for it. To unsubscribe, reply to any letter
-              or <Link href="/contact" className="underline hover:text-salt">send a note</Link> and you will be removed.
+              Market updates go only to people who sign up. To stop them, reply to any of the emails or{" "}
+              <Link href="/contact" className="underline hover:text-salt">send a note</Link>.
             </p>
             <p>
               <Link href="/privacy" className="underline hover:text-salt">Privacy</Link> · © {year} {site.brand}

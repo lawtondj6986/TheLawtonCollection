@@ -33,7 +33,7 @@ export const mailHref = `mailto:${site.email}`;
 export const nav = [
   { href: "/cape-cod", label: "Cape Cod" },
   { href: "/south-shore", label: "South Shore" },
-  { href: "/collection", label: "The Collection" },
+  { href: "/collection", label: "Homes for sale" },
   { href: "/home-value", label: "Home value" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

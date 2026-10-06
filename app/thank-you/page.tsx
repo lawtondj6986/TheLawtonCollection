@@ -16,7 +16,7 @@ const copy: Record<string, { title: string; body: string }> = {
   },
   letter: {
     title: "You're on the list.",
-    body: "The first market letter is being written now. It will come to your inbox when it is ready, and you can leave the list at any time.",
+    body: "The first market update is being written now. It will come to your inbox when it's ready, and you can stop it any time.",
   },
   default: {
     title: "Thank you. Your note reached Michelle.",
@@ -36,7 +36,7 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
       <p className="mx-auto mt-7 max-w-xl text-lg text-ink/90">{body}</p>
       <div className="mt-10 flex flex-wrap justify-center gap-3">
         <ButtonLink href="/" variant="secondary">Back to home</ButtonLink>
-        <ButtonLink href="/collection" variant="secondary">See the Collection</ButtonLink>
+        <ButtonLink href="/collection" variant="secondary">See homes for sale</ButtonLink>
       </div>
     </Container>
   );

@@ -54,7 +54,7 @@ export function PlacePage({ place }: { place: Place }) {
           </section>
 
           <section aria-labelledby="for">
-            <h2 id="for" className="text-[2rem]">Who this page is for</h2>
+            <h2 id="for" className="text-[2rem]">A good fit for</h2>
             <ul className="mt-4 space-y-3">
               {place.forWhom.map((item) => (
                 <li key={item} className="flex gap-3 text-ink/90">
@@ -66,7 +66,7 @@ export function PlacePage({ place }: { place: Place }) {
           </section>
 
           <section aria-labelledby="ask">
-            <h2 id="ask" className="text-[2rem]">Worth asking about</h2>
+            <h2 id="ask" className="text-[2rem]">Things to ask about</h2>
             <ul className="mt-4 space-y-3">
               {place.askAbout.map((item) => (
                 <li key={item} className="flex gap-3 text-ink/90">
@@ -76,8 +76,8 @@ export function PlacePage({ place }: { place: Place }) {
               ))}
             </ul>
             <p className="mt-6 text-base text-shingle-deep">
-              You won&rsquo;t find price averages or school ratings on this page. Numbers like that change by the
-              street and by the month. Ask, and Michelle will give you current figures for the homes you care about.
+              You won&rsquo;t find price averages or school ratings here. They change street by street and month by
+              month. Ask, and Michelle will give you real numbers for the homes you care about.
             </p>
           </section>
         </div>

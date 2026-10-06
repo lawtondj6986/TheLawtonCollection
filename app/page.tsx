@@ -147,7 +147,7 @@ export default function HomePage() {
             {[
               {
                 title: "A straight answer on price",
-                body: "If your house needs work before it sells, you will hear it from Michelle first. If it doesn't, she'll tell you that too.",
+                body: "If your house needs work before it sells, Michelle will tell you. If it doesn't, she'll tell you that too.",
               },
               {
                 title: "Your schedule, not hers",
@@ -155,7 +155,7 @@ export default function HomePage() {
               },
               {
                 title: "One call for both shores",
-                body: "Moving from Brockton to the Cape, or from the Cape back toward family? Michelle knows both markets and the people in them.",
+                body: "Moving from Brockton to the Cape, or from the Cape back near family? Michelle knows both areas and the people in them.",
               },
             ].map((item) => (
               <div key={item.title}>
@@ -197,11 +197,11 @@ export default function HomePage() {
             <div>
               <p className="eyebrow">The Collection</p>
               <h2 id="collection" className="mt-3 text-4xl sm:text-5xl">
-                Homes Michelle is representing
+                Homes for sale
               </h2>
             </div>
             <Link href="/collection" className="font-semibold text-navy">
-              <span className="border-b border-brass">See the Collection</span> <span aria-hidden>→</span>
+              <span className="border-b border-brass">See all homes</span> <span aria-hidden>→</span>
             </Link>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -215,13 +215,13 @@ export default function HomePage() {
       <section aria-labelledby="letter" className="pb-4">
         <Container className="grid gap-10 border-t border-brass pt-16 md:grid-cols-2 md:items-center">
           <div>
-            <p className="eyebrow">Market letter</p>
+            <p className="eyebrow">Market update</p>
             <h2 id="letter" className="mt-3 text-4xl sm:text-5xl">
-              A plain-spoken letter on both markets.
+              Get Michelle&rsquo;s market update by email.
             </h2>
             <p className="mt-5 max-w-md text-ink/90">
-              What sold, what sat, and what it means for your street. Michelle is preparing the first letter now.
-              No spam, and you can leave any time.
+              What sold, what didn&rsquo;t, and what it means for your street. The first one is being written now. No
+              spam. Stop any time.
             </p>
           </div>
           <div className="border border-line bg-white p-6 sm:p-8">

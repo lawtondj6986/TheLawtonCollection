@@ -49,8 +49,8 @@ export default function SouthShorePage() {
           ))}
         </ul>
         <p className="mt-6 max-w-2xl text-base text-shingle-deep">
-          No market statistics here on purpose. Ask about a specific town or street and Michelle will send you
-          current, real numbers.
+          You won&rsquo;t find made-up averages here. Ask about a town or a street and Michelle will send you real,
+          current numbers.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <ButtonLink href="/contact">Talk with Michelle</ButtonLink>

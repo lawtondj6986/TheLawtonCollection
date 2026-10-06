@@ -14,9 +14,8 @@ export default function HomeValuePage() {
     <>
       <PageHeader eyebrow="Home value" title="What is my home worth?">
         <p>
-          An online estimate can&rsquo;t see your new roof, your old furnace, or the street you are on. Michelle
-          can. Tell her a little about the house and she will set up a conversation, look at the home with you, and
-          give you a straight read on price and timing.
+          An online estimate can&rsquo;t see your new roof, your old furnace, or your street. Michelle can. Tell
+          her a little about the house, and she&rsquo;ll come see it and give you a straight answer on price.
         </p>
       </PageHeader>
 
@@ -26,8 +25,8 @@ export default function HomeValuePage() {
           <ol className="mt-6 space-y-7">
             {[
               ["Michelle calls or emails you", "At a time that works for your schedule, by phone or email, whichever you prefer."],
-              ["She sees the house", "In person when possible. The things that move price are rarely visible online."],
-              ["You get a straight answer", "A realistic price range, what would raise it, and what isn't worth spending on. No pressure to list."],
+              ["She sees the house", "In person when possible. Most of what affects price can't be seen online."],
+              ["You get a straight answer", "A fair price range, what would raise it, and what isn't worth the money. No pressure to sell."],
             ].map(([title, body], index) => (
               <li key={title} className="flex gap-5">
                 <span className="font-serif text-[2rem] leading-none text-brass-deep">{index + 1}</span>
@@ -40,15 +39,15 @@ export default function HomeValuePage() {
           </ol>
           <Rule className="mt-10" />
           <p className="mt-6 max-w-lg text-base text-shingle-deep">
-            This is a consultation request, not an automated valuation. Nothing on this site will show you an
-            estimated value; that comes from a conversation.
+            This is not an online estimate. Michelle gives you a real number after she sees the house and talks
+            with you.
           </p>
         </div>
 
         <div className="order-1 border border-line bg-white p-6 sm:p-8 md:order-2">
-          <h2 className="text-[1.9rem]">Request a consultation</h2>
+          <h2 className="text-[1.9rem]">Ask Michelle what your house is worth</h2>
           <div className="mt-6">
-            <LeadForm kind="valuation" source="/home-value" submitLabel="Request a consultation" />
+            <LeadForm kind="valuation" source="/home-value" submitLabel="Send to Michelle" />
           </div>
         </div>
       </Container>

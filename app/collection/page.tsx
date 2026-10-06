@@ -4,7 +4,7 @@ import { getListings } from "@/lib/listings";
 import { pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
-  title: "The Collection",
+  title: "Homes for sale",
   description: "Homes Michelle Lawton is representing on Cape Cod and the South Shore, described honestly.",
   path: "/collection",
 });
@@ -15,17 +15,15 @@ export default function CollectionPage() {
 
   return (
     <>
-      <PageHeader eyebrow="The Collection" title="Homes Michelle is representing">
+      <PageHeader eyebrow="The Collection" title="Homes for sale">
         <p>
-          Every house here is one Michelle knows firsthand. The descriptions say what is good and what needs work,
-          because that is what you would want to know.
+          Michelle knows every house here firsthand. Each description tells you what&rsquo;s good and what needs work.
         </p>
       </PageHeader>
       <Container>
         {hasSamples ? (
           <p className="mb-8 border-l-2 border-[#9b2c2c] bg-white px-4 py-3 text-base text-ink">
-            Listings marked SAMPLE are placeholders that show how the Collection will look. They are not homes for
-            sale.
+            Listings marked SAMPLE are examples of how this page will look. They are not real homes for sale.
           </p>
         ) : null}
         {listings.length ? (
@@ -36,8 +34,8 @@ export default function CollectionPage() {
           </div>
         ) : (
           <p className="text-lg text-ink/90">
-            Nothing listed at the moment. New homes often come up before they reach the open market, so it is worth
-            a note to Michelle about what you are looking for.
+            Nothing listed right now. Some homes sell before they&rsquo;re ever listed, so tell Michelle what
+            you&rsquo;re looking for.
           </p>
         )}
       </Container>

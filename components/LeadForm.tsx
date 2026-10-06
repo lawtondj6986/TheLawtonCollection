@@ -110,7 +110,7 @@ export function LeadForm({ kind, source, market, listing, town, submitLabel = "S
         <div className="grid gap-5 sm:grid-cols-2">
           <Field
             name="town"
-            label={kind === "valuation" ? "Town the home is in" : "Town"}
+            label={kind === "valuation" ? "What town is the house in?" : "Town"}
             error={e.town}
             optional={kind !== "valuation"}
           >
@@ -127,7 +127,7 @@ export function LeadForm({ kind, source, market, listing, town, submitLabel = "S
             )}
           </Field>
           {askTiming ? (
-            <Field name="timing" label="Rough timing" error={e.timing} optional={kind !== "valuation"}>
+            <Field name="timing" label="When are you thinking of moving?" error={e.timing} optional={kind !== "valuation"}>
               {(f) => (
                 <select
                   id={f.id}
@@ -179,7 +179,7 @@ export function LeadForm({ kind, source, market, listing, town, submitLabel = "S
 
       <Field
         name="notes"
-        label={kind === "valuation" ? "Anything Michelle should know about the house" : "Notes"}
+        label={kind === "valuation" ? "Anything Michelle should know about the house?" : "Anything else?"}
         optional
         error={e.notes}
       >
@@ -198,7 +198,7 @@ export function LeadForm({ kind, source, market, listing, town, submitLabel = "S
       <label className="flex items-start gap-3 text-base leading-snug">
         <input type="checkbox" name="consent" className="mt-1 size-4 shrink-0 accent-navy" />
         <span>
-          Also send me Michelle&rsquo;s market letter by email. You can unsubscribe at any time.
+          Also email me Michelle&rsquo;s market update. I can stop it any time.
         </span>
       </label>
 

@@ -21,7 +21,7 @@ const sections: [string, string[]][] = [
     "How it is used",
     [
       "Only to reply to you and to help with the real estate question you asked. Your information is never sold or rented to anyone.",
-      "If you check the market letter box, your email is added to that list. The box is never checked for you.",
+      "If you check the market update box, your email is added to that list. The box is never checked for you.",
     ],
   ],
   [
@@ -34,7 +34,7 @@ const sections: [string, string[]][] = [
   [
     "Your choices",
     [
-      "To unsubscribe from the market letter, reply to any letter or send a note through the contact page.",
+      "To stop the market update, reply to any of the emails or send a note through the contact page.",
       "To see, correct, or delete what you have sent, send a note through the contact page and Michelle will take care of it.",
     ],
   ],

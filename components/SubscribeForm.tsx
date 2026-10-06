@@ -38,14 +38,14 @@ export function SubscribeForm({ source }: { source: string }) {
             className="mt-1 size-4 shrink-0 accent-navy"
           />
           <span>
-            Yes, email me Michelle&rsquo;s market letter. I can unsubscribe at any time.
+            Yes, email me Michelle&rsquo;s market update. I can stop it any time.
           </span>
         </label>
         {e.consent ? (
           <p className="mt-1.5 text-base text-[#9b2c2c]">{e.consent}</p>
         ) : null}
       </div>
-      <SubmitButton pending={pending}>Send me the letter</SubmitButton>
+      <SubmitButton pending={pending}>Sign me up</SubmitButton>
     </form>
   );
 }

@@ -63,7 +63,7 @@ export default async function ListingPage({ params }: { params: Promise<Params> 
 
       <Container className="pt-10 sm:pt-14">
         <nav aria-label="Breadcrumb" className="text-base text-shingle-deep">
-          <Link href="/collection" className="link">The Collection</Link>
+          <Link href="/collection" className="link">Homes for sale</Link>
           <span aria-hidden className="mx-2">/</span>
           <span aria-current="page">{place}</span>
         </nav>

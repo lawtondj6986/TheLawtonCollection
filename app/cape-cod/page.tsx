@@ -17,9 +17,8 @@ export default function CapeCodPage() {
     <>
       <PageHeader eyebrow="Cape Cod" title="Falmouth and the Upper Cape">
         <p>
-          Year-round neighborhoods, summer places that became home, and a few houses on the water. Michelle works
-          mostly in Falmouth, where every village has its own pace and its own questions to ask before you buy or
-          sell.
+          Michelle works mostly in Falmouth. Each village is a little different, with its own things to check
+          before you buy or sell.
         </p>
       </PageHeader>
 
@@ -45,8 +44,8 @@ export default function CapeCodPage() {
             <div>
               <p className="font-serif text-[1.9rem] leading-tight text-salt">Brockton roots · Cape Cod homes</p>
               <p className="mt-2 max-w-xl text-salt/85">
-                Selling a family place on the Cape, or buying one from off-Cape? Start with a conversation, not a
-                listing appointment.
+                Selling a family place on the Cape, or moving here from off-Cape? Start with a phone call. No
+                pressure.
               </p>
             </div>
           </div>
