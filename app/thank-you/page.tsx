@@ -33,7 +33,7 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
       <Monogram className="mx-auto h-16 w-auto text-navy" />
       <h1 className="mx-auto mt-8 max-w-2xl text-[2.6rem] sm:text-5xl">{title}</h1>
       <Rule className="mx-auto mt-7" />
-      <p className="mx-auto mt-7 max-w-xl text-lg text-ink/85">{body}</p>
+      <p className="mx-auto mt-7 max-w-xl text-lg text-ink/90">{body}</p>
       <div className="mt-10 flex flex-wrap justify-center gap-3">
         <ButtonLink href="/" variant="secondary">Back to home</ButtonLink>
         <ButtonLink href="/collection" variant="secondary">See the Collection</ButtonLink>

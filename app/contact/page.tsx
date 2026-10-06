@@ -19,8 +19,8 @@ function Cards() {
         <p className="mt-3 font-serif text-[1.6rem] leading-none tracking-[0.12em] uppercase">{site.name}</p>
         <p className="mt-1.5 font-serif text-[1rem] italic">{site.brand}</p>
         <span aria-hidden className="mt-2.5 block h-px w-36 bg-navy/60" />
-        <p className="mt-2.5 text-[0.72rem] tracking-[0.16em] uppercase">Cape Cod &amp; the South Shore</p>
-        <p className="mt-1 font-serif text-[0.95rem] italic">Brockton native</p>
+        <p className="mt-2.5 text-[0.8rem] tracking-[0.16em] uppercase">Cape Cod &amp; the South Shore</p>
+        <p className="mt-1 font-serif text-base italic">Brockton native</p>
       </div>
       <div className="flex aspect-[7/4] flex-col items-center justify-center bg-navy px-5 text-center text-salt">
         <p className="font-serif text-[2rem] leading-none tracking-[0.14em] uppercase">Real estate</p>
@@ -63,7 +63,7 @@ export default function ContactPage() {
         </div>
         <aside aria-label="Michelle's card" className="space-y-8">
           <Cards />
-          <div className="space-y-1 text-ink/85">
+          <div className="space-y-1 text-ink/90">
             <p className="font-semibold text-navy">
               {site.title}, {site.brokerage}
             </p>

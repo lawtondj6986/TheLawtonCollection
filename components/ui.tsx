@@ -24,7 +24,7 @@ export function ButtonLink({ variant = "primary", className = "", ...props }: Bu
   return (
     <Link
       {...props}
-      className={`inline-flex min-h-12 items-center justify-center px-6 text-[0.95rem] font-semibold tracking-wide transition-colors ${buttonStyles[variant]} ${className}`}
+      className={`inline-flex min-h-12 items-center justify-center px-6 text-base font-semibold tracking-wide transition-colors ${buttonStyles[variant]} ${className}`}
     />
   );
 }
@@ -43,7 +43,7 @@ export function PageHeader({
       <p className="eyebrow">{eyebrow}</p>
       <h1 className="mt-4 max-w-3xl text-[2.6rem] sm:text-6xl">{title}</h1>
       <Rule className="mt-7" />
-      {children ? <div className="mt-7 max-w-2xl text-lg text-ink/85">{children}</div> : null}
+      {children ? <div className="mt-7 max-w-2xl text-lg text-ink/90">{children}</div> : null}
     </Container>
   );
 }

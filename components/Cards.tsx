@@ -25,12 +25,12 @@ export function FrameCard({
       <Photo src={image.src} alt={image.alt} position={image.position} aspect="aspect-[4/3]" sizes="(min-width: 768px) 33vw, 100vw" />
       <div className="flex items-center justify-between gap-4 border-t border-brass bg-navy px-5 py-4">
         <div>
-          <p className="text-[0.72rem] font-semibold tracking-[0.18em] text-brass uppercase">{kicker}</p>
+          <p className="text-[0.8rem] font-semibold tracking-[0.18em] text-brass uppercase">{kicker}</p>
           <h3 className="mt-1 text-[1.65rem] leading-tight text-salt">{title}</h3>
         </div>
         <Monogram className="h-8 w-auto shrink-0 text-brass" />
       </div>
-      <p className="mt-4 text-ink/85">{summary}</p>
+      <p className="mt-4 text-ink/90">{summary}</p>
       <p className="mt-3 font-semibold text-navy">
         <span className="border-b border-brass/70 group-hover:border-navy">Read the local note</span>
         <span aria-hidden> →</span>
@@ -41,7 +41,7 @@ export function FrameCard({
 
 export function SampleBadge() {
   return (
-    <span className="inline-block border border-[#9b2c2c] bg-white px-2 py-0.5 text-[0.72rem] font-bold tracking-[0.16em] text-[#9b2c2c]">
+    <span className="inline-block border border-[#9b2c2c] bg-white px-2 py-0.5 text-[0.8rem] font-bold tracking-[0.16em] text-[#9b2c2c]">
       SAMPLE
     </span>
   );
@@ -60,14 +60,14 @@ export function ListingCard({ listing }: { listing: Listing }) {
         ) : null}
       </div>
       <div className="p-5 sm:p-6">
-        <p className="text-[0.75rem] font-semibold tracking-[0.18em] text-brass-deep uppercase">
+        <p className="text-[0.8rem] font-semibold tracking-[0.18em] text-brass-deep uppercase">
           {statusLabel[listing.status]} · {place}
         </p>
         <p className="mt-2 font-serif text-[1.9rem] leading-none text-navy">{formatPrice(listing.price)}</p>
-        <p className="mt-2 text-ink/80">
+        <p className="mt-2 text-ink/90">
           {listing.beds} bedrooms · {listing.baths} baths
         </p>
-        <p className="mt-3 line-clamp-3 text-[0.98rem] text-ink/80">{listing.description}</p>
+        <p className="mt-3 line-clamp-3 text-base text-ink/90">{listing.description}</p>
         <p className="mt-4 font-semibold text-navy">
           <span className="border-b border-brass/70 group-hover:border-navy">See the house</span>
           <span aria-hidden> →</span>

@@ -7,6 +7,7 @@ import { SubscribeForm } from "@/components/SubscribeForm";
 import { images } from "@/content/images";
 import { brockton, southShoreTowns, villages } from "@/content/places";
 import { getListings } from "@/lib/listings";
+import { faq } from "@/content/faq";
 import { pageMeta } from "@/lib/metadata";
 import { site, telHref } from "@/lib/site";
 
@@ -35,7 +36,7 @@ function HeroLockup() {
       <p className="mt-1.5 font-serif text-[1.4rem] leading-tight text-brass-light italic sm:text-[1.6rem]">{site.line}</p>
       <Link
         href="/contact"
-        className="mt-7 inline-flex min-h-12 items-center gap-3 border border-brass-light bg-navy/30 px-6 text-[0.9rem] font-semibold tracking-[0.14em] text-salt uppercase transition-colors hover:bg-salt hover:text-navy"
+        className="mt-7 inline-flex min-h-12 items-center gap-3 border border-brass-light bg-navy/30 px-6 text-base font-semibold tracking-[0.14em] text-salt uppercase transition-colors hover:bg-salt hover:text-navy"
       >
         Talk with Michelle <span aria-hidden>→</span>
       </Link>
@@ -97,8 +98,8 @@ export default function HomePage() {
               <span className="font-semibold text-navy">Brockton native.</span> Helping families buy and sell on Cape
               Cod and the South Shore, from a first home in Brockton to a family house in West Falmouth.
             </p>
-            <p className="mt-1 text-[0.92rem] text-shingle-deep">
-              {site.title}, {site.brokerage} · SRES · ABR · CENTURY 21 Masters Emerald Award
+            <p className="mt-1 text-base text-shingle-deep">
+              {site.title} with {site.brokerage} in {site.office.city}. Award-winning, and easy to reach.
             </p>
           </div>
           <Link href="/home-value" className="shrink-0 font-semibold text-navy">
@@ -159,14 +160,37 @@ export default function HomePage() {
               <div key={item.title}>
                 <Rule />
                 <h3 className="mt-5 text-[1.75rem]">{item.title}</h3>
-                <p className="mt-3 text-ink/85">{item.body}</p>
+                <p className="mt-3 text-ink/90">{item.body}</p>
               </div>
             ))}
           </div>
         </Container>
       </section>
 
-      <section aria-labelledby="collection" className="py-20 sm:py-24">
+      <section aria-labelledby="answers" className="py-20 sm:py-24">
+        <Container>
+          <p className="eyebrow">Straight answers</p>
+          <h2 id="answers" className="mt-3 max-w-2xl text-4xl sm:text-5xl">
+            Questions people ask before they call
+          </h2>
+          <dl className="mt-12 grid gap-x-14 gap-y-10 md:grid-cols-2">
+            {faq.map((item) => (
+              <div key={item.q} className="border-t border-line pt-6">
+                <dt className="font-serif text-[1.65rem] leading-snug text-navy">{item.q}</dt>
+                <dd className="mt-2.5 text-ink/90">{item.a}</dd>
+              </div>
+            ))}
+          </dl>
+          <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <ButtonLink href="/contact">Talk with Michelle</ButtonLink>
+            <a href={telHref} className="text-lg font-semibold text-navy underline decoration-brass underline-offset-4">
+              or call {site.phone}
+            </a>
+          </div>
+        </Container>
+      </section>
+
+      <section aria-labelledby="collection" className="border-t border-line py-20 sm:py-24">
         <Container>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -194,7 +218,7 @@ export default function HomePage() {
             <h2 id="letter" className="mt-3 text-4xl sm:text-5xl">
               A plain-spoken letter on both markets.
             </h2>
-            <p className="mt-5 max-w-md text-ink/85">
+            <p className="mt-5 max-w-md text-ink/90">
               What sold, what sat, and what it means for your street. Michelle is preparing the first letter now.
               No spam, and you can leave any time.
             </p>
@@ -233,8 +257,8 @@ function ShoreCard({
         />
       </div>
       <h3 className="mt-5 text-[2.3rem]">{caption}</h3>
-      <p className="mt-1 text-ink/85">{line}</p>
-      <p className="mt-2 text-[0.95rem] text-shingle-deep">{places.join(" · ")}</p>
+      <p className="mt-1 text-ink/90">{line}</p>
+      <p className="mt-2 text-base text-shingle-deep">{places.join(" · ")}</p>
       <p className="mt-4 font-semibold text-navy">
         <span className="border-b border-brass/70 group-hover:border-navy">Explore the {caption}</span>
         <span aria-hidden> →</span>

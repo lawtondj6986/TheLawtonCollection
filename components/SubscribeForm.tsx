@@ -30,7 +30,7 @@ export function SubscribeForm({ source }: { source: string }) {
         )}
       </Field>
       <div>
-        <label className="flex items-start gap-3 text-[0.95rem] leading-snug">
+        <label className="flex items-start gap-3 text-base leading-snug">
           <input
             type="checkbox"
             name="consent"
@@ -42,7 +42,7 @@ export function SubscribeForm({ source }: { source: string }) {
           </span>
         </label>
         {e.consent ? (
-          <p className="mt-1.5 text-[0.9rem] text-[#9b2c2c]">{e.consent}</p>
+          <p className="mt-1.5 text-base text-[#9b2c2c]">{e.consent}</p>
         ) : null}
       </div>
       <SubmitButton pending={pending}>Send me the letter</SubmitButton>

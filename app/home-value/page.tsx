@@ -33,13 +33,13 @@ export default function HomeValuePage() {
                 <span className="font-serif text-[2rem] leading-none text-brass-deep">{index + 1}</span>
                 <div>
                   <h3 className="text-[1.5rem]">{title}</h3>
-                  <p className="mt-1 text-ink/85">{body}</p>
+                  <p className="mt-1 text-ink/90">{body}</p>
                 </div>
               </li>
             ))}
           </ol>
           <Rule className="mt-10" />
-          <p className="mt-6 max-w-lg text-[0.95rem] text-shingle-deep">
+          <p className="mt-6 max-w-lg text-base text-shingle-deep">
             This is a consultation request, not an automated valuation. Nothing on this site will show you an
             estimated value; that comes from a conversation.
           </p>

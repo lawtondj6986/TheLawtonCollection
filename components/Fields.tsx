@@ -23,12 +23,12 @@ export function Field({
   const describedBy = [hint ? `${id}-hint` : null, error ? `${id}-error` : null].filter(Boolean).join(" ") || undefined;
   return (
     <div>
-      <label htmlFor={id} className="block text-[0.95rem] font-semibold text-navy">
+      <label htmlFor={id} className="block text-base font-semibold text-navy">
         {label}
         {optional ? <span className="ml-1.5 font-normal text-shingle-deep">(optional)</span> : null}
       </label>
       {hint ? (
-        <p id={`${id}-hint`} className="mt-0.5 text-[0.9rem] text-shingle-deep">
+        <p id={`${id}-hint`} className="mt-0.5 text-base text-shingle-deep">
           {hint}
         </p>
       ) : null}
@@ -39,7 +39,7 @@ export function Field({
         className: `${inputBase} ${error ? "border-[#9b2c2c]" : "border-line"}`,
       })}
       {error ? (
-        <p id={`${id}-error`} className="mt-1.5 text-[0.9rem] text-[#9b2c2c]">
+        <p id={`${id}-error`} className="mt-1.5 text-base text-[#9b2c2c]">
           {error}
         </p>
       ) : null}
@@ -60,7 +60,7 @@ export function Honeypot() {
 export function FormMessage({ message }: { message?: string }) {
   if (!message) return null;
   return (
-    <p role="alert" className="border-l-2 border-[#9b2c2c] bg-white px-4 py-3 text-[0.95rem] text-[#7a1f1f]">
+    <p role="alert" className="border-l-2 border-[#9b2c2c] bg-white px-4 py-3 text-base text-[#7a1f1f]">
       {message}
     </p>
   );

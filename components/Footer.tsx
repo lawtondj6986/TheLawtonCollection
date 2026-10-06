@@ -31,7 +31,7 @@ export function Footer() {
 
         <div className="grid gap-10 sm:grid-cols-2">
           <div>
-            <p className="text-[0.78rem] font-semibold tracking-[0.18em] text-brass uppercase">Pages</p>
+            <p className="text-[0.82rem] font-semibold tracking-[0.18em] text-brass uppercase">Pages</p>
             <ul className="mt-4 space-y-2">
               {nav.map((item) => (
                 <li key={item.href}>
@@ -49,7 +49,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-[0.78rem] font-semibold tracking-[0.18em] text-brass uppercase">Reach Michelle</p>
+            <p className="text-[0.82rem] font-semibold tracking-[0.18em] text-brass uppercase">Reach Michelle</p>
             <ul className="mt-4 space-y-2 text-salt/85">
               <li>
                 <a href={telHref} className="text-lg font-semibold text-salt select-text hover:underline">
@@ -61,7 +61,7 @@ export function Footer() {
                   {site.email}
                 </a>
               </li>
-              <li data-slot="brokerage" className="pb-2 text-[0.92rem] leading-snug text-salt/75">
+              <li data-slot="brokerage" className="pb-2 text-base leading-snug text-salt/75">
                 <span className="text-salt">
                   {site.title}, {site.brokerage}
                 </span>
@@ -91,7 +91,7 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-brass/40">
-        <Container className="grid gap-4 py-8 text-[0.9rem] leading-relaxed text-salt/75 md:grid-cols-2 md:gap-10">
+        <Container className="grid gap-4 py-8 text-base leading-relaxed text-salt/75 md:grid-cols-2 md:gap-10">
           <div className="space-y-1.5">
             <p>
               <span className="text-salt">{site.name}</span> · {site.title}, {site.brokerage}

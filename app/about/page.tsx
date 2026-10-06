@@ -36,14 +36,14 @@ function FamilyCard() {
       <span aria-hidden className="mx-auto mt-4 block h-px w-14 bg-navy/60" />
       <p className="mt-4 font-serif text-[2.6rem] leading-none">{site.name}</p>
       <p className="mt-2 font-serif text-[1.1rem] tracking-[0.2em]">real estate</p>
-      <p className="mt-2 text-[0.8rem] tracking-[0.14em] text-ink/75 uppercase">
+      <p className="mt-2 text-[0.8rem] tracking-[0.14em] text-ink/90 uppercase">
         {site.title} · {site.brokerage}
       </p>
       <span aria-hidden className="mx-auto mt-4 block h-px w-14 bg-navy/60" />
       <p className="mt-4 font-serif text-[1.3rem]">Cape Cod and the South Shore</p>
       <p className="mt-2 font-serif text-[1.3rem]">Brockton native</p>
       <span aria-hidden className="mx-auto mt-6 block h-px w-10 bg-brass" />
-      <p className="mt-6 font-serif text-[1.15rem] leading-snug text-ink/85">
+      <p className="mt-6 font-serif text-[1.15rem] leading-snug text-ink/90">
         Family counsel:
         <br />
         Richard Lawton, attorney,
@@ -104,7 +104,7 @@ export default function AboutPage() {
                   <dt className="font-serif text-[1.5rem] leading-none text-navy">{d.short}</dt>
                   <dd>
                     <span className="font-semibold text-navy">{d.name}.</span>{" "}
-                    <span className="text-ink/85">{d.note}</span>
+                    <span className="text-ink/90">{d.note}</span>
                   </dd>
                 </div>
               ))}
@@ -128,7 +128,7 @@ export default function AboutPage() {
 
           <div className="mt-12 max-w-2xl border-l-2 border-brass pl-6">
             <h2 className="text-[1.9rem]">Family counsel</h2>
-            <p className="mt-3 text-ink/85">
+            <p className="mt-3 text-ink/90">
               My husband, Richard Lawton, is an attorney in Brockton. He helps families with real estate closings and
               with estates, and some of my clients choose to work with him for that part of the process. You are
               always free to choose your own attorney. Richard is not a listing agent and is not part of my real

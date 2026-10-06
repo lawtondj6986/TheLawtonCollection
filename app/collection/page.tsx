@@ -23,7 +23,7 @@ export default function CollectionPage() {
       </PageHeader>
       <Container>
         {hasSamples ? (
-          <p className="mb-8 border-l-2 border-[#9b2c2c] bg-white px-4 py-3 text-[0.95rem] text-ink">
+          <p className="mb-8 border-l-2 border-[#9b2c2c] bg-white px-4 py-3 text-base text-ink">
             Listings marked SAMPLE are placeholders that show how the Collection will look. They are not homes for
             sale.
           </p>
@@ -35,7 +35,7 @@ export default function CollectionPage() {
             ))}
           </div>
         ) : (
-          <p className="text-lg text-ink/85">
+          <p className="text-lg text-ink/90">
             Nothing listed at the moment. New homes often come up before they reach the open market, so it is worth
             a note to Michelle about what you are looking for.
           </p>

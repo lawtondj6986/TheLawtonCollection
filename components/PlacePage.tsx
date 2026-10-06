@@ -14,7 +14,7 @@ export function PlacePage({ place }: { place: Place }) {
   return (
     <>
       <Container className="pt-10 sm:pt-14">
-        <nav aria-label="Breadcrumb" className="text-[0.92rem] text-shingle-deep">
+        <nav aria-label="Breadcrumb" className="text-base text-shingle-deep">
           <Link href={parent.href} className="link">
             {parent.label}
           </Link>
@@ -26,7 +26,7 @@ export function PlacePage({ place }: { place: Place }) {
         </p>
         <h1 className="mt-4 text-[2.8rem] sm:text-6xl">{place.name}</h1>
         <Rule className="mt-7" />
-        <p className="mt-7 max-w-2xl text-lg text-ink/85">{place.summary}</p>
+        <p className="mt-7 max-w-2xl text-lg text-ink/90">{place.summary}</p>
       </Container>
 
       {image ? (
@@ -74,7 +74,7 @@ export function PlacePage({ place }: { place: Place }) {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-[0.95rem] text-shingle-deep">
+            <p className="mt-6 text-base text-shingle-deep">
               You won&rsquo;t find price averages or school ratings on this page. Numbers like that change by the
               street and by the month. Ask, and Michelle will give you current figures for the homes you care about.
             </p>
@@ -84,7 +84,7 @@ export function PlacePage({ place }: { place: Place }) {
         <aside aria-labelledby="ask-michelle" className="md:sticky md:top-6 md:self-start">
           <div className="border border-line bg-white p-6 sm:p-8">
             <h2 id="ask-michelle" className="text-[1.9rem]">Ask Michelle about {place.name}</h2>
-            <p className="mt-2 text-[0.98rem] text-ink/80">Buying, selling, or just curious. She&rsquo;ll get back to you herself.</p>
+            <p className="mt-2 text-base text-ink/90">Buying, selling, or just curious. She&rsquo;ll get back to you herself.</p>
             <div className="mt-6">
               <LeadForm kind="place" source={place.path} market={place.market} town={place.town} />
             </div>

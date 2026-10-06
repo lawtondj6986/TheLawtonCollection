@@ -38,12 +38,12 @@ export function LeadForm({ kind, source, market, listing, town, submitLabel = "S
 
       {kind === "contact" ? (
         <fieldset>
-          <legend className="text-[0.95rem] font-semibold text-navy">What can Michelle help with?</legend>
+          <legend className="text-base font-semibold text-navy">What can Michelle help with?</legend>
           <div className="mt-2 grid grid-cols-2 gap-2">
             {purposes.map((p) => (
               <label
                 key={p.value}
-                className="flex min-h-12 cursor-pointer items-center gap-2.5 border border-line bg-white px-3 text-[0.95rem] has-[:checked]:border-navy has-[:checked]:bg-navy/[0.04]"
+                className="flex min-h-12 cursor-pointer items-center gap-2.5 border border-line bg-white px-3 text-base has-[:checked]:border-navy has-[:checked]:bg-navy/[0.04]"
               >
                 <input
                   type="radio"
@@ -56,7 +56,7 @@ export function LeadForm({ kind, source, market, listing, town, submitLabel = "S
               </label>
             ))}
           </div>
-          {e.purpose ? <p className="mt-1.5 text-[0.9rem] text-[#9b2c2c]">{e.purpose}</p> : null}
+          {e.purpose ? <p className="mt-1.5 text-base text-[#9b2c2c]">{e.purpose}</p> : null}
         </fieldset>
       ) : null}
 
@@ -104,7 +104,7 @@ export function LeadForm({ kind, source, market, listing, town, submitLabel = "S
           )}
         </Field>
       </div>
-      <p className="-mt-2 text-[0.9rem] text-shingle-deep">A phone number or an email is enough.</p>
+      <p className="-mt-2 text-base text-shingle-deep">A phone number or an email is enough.</p>
 
       {askTown ? (
         <div className="grid gap-5 sm:grid-cols-2">
@@ -152,7 +152,7 @@ export function LeadForm({ kind, source, market, listing, town, submitLabel = "S
 
       {askMarket ? (
         <fieldset>
-          <legend className="text-[0.95rem] font-semibold text-navy">
+          <legend className="text-base font-semibold text-navy">
             Cape Cod or the South Shore?
             {kind !== "valuation" ? <span className="ml-1.5 font-normal text-shingle-deep">(optional)</span> : null}
           </legend>
@@ -160,7 +160,7 @@ export function LeadForm({ kind, source, market, listing, town, submitLabel = "S
             {markets.map((m) => (
               <label
                 key={m.value}
-                className="flex min-h-12 cursor-pointer items-center gap-2.5 border border-line bg-white px-3 text-[0.95rem] has-[:checked]:border-navy has-[:checked]:bg-navy/[0.04]"
+                className="flex min-h-12 cursor-pointer items-center gap-2.5 border border-line bg-white px-3 text-base has-[:checked]:border-navy has-[:checked]:bg-navy/[0.04]"
               >
                 <input
                   type="radio"
@@ -173,7 +173,7 @@ export function LeadForm({ kind, source, market, listing, town, submitLabel = "S
               </label>
             ))}
           </div>
-          {e.market ? <p className="mt-1.5 text-[0.9rem] text-[#9b2c2c]">{e.market}</p> : null}
+          {e.market ? <p className="mt-1.5 text-base text-[#9b2c2c]">{e.market}</p> : null}
         </fieldset>
       ) : null}
 
@@ -195,7 +195,7 @@ export function LeadForm({ kind, source, market, listing, town, submitLabel = "S
         )}
       </Field>
 
-      <label className="flex items-start gap-3 text-[0.95rem] leading-snug">
+      <label className="flex items-start gap-3 text-base leading-snug">
         <input type="checkbox" name="consent" className="mt-1 size-4 shrink-0 accent-navy" />
         <span>
           Also send me Michelle&rsquo;s market letter by email. You can unsubscribe at any time.
@@ -205,7 +205,7 @@ export function LeadForm({ kind, source, market, listing, town, submitLabel = "S
       <div className="pt-2">
         <SubmitButton pending={pending}>{submitLabel}</SubmitButton>
       </div>
-      <p className="text-[0.85rem] text-shingle-deep">
+      <p className="text-base text-shingle-deep">
         Michelle reads every message herself. Your details are used only to reply to you.{" "}
         <a href="/privacy" className="underline">Privacy</a>
       </p>

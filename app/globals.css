@@ -10,7 +10,7 @@
 
   /* Accessible text tones derived from the palette. Shingle and brass fail
      WCAG AA as small text on sea-salt, so small text uses these. */
-  --color-shingle-deep: #5c5750;
+  --color-shingle-deep: #4f4a44;
   --color-brass-deep: #7a5f33;
   --color-brass-light: #e6d3ae; /* brass tint for type over photographs */
   --color-sand: #ece7dd;
@@ -29,15 +29,15 @@
     background: var(--color-salt);
     color: var(--color-ink);
     font-family: var(--font-sans);
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3 {
     font-family: var(--font-serif);
     color: var(--color-navy);
-    font-weight: 500;
-    line-height: 1.1;
+    font-weight: 600;
+    line-height: 1.12;
     text-wrap: balance;
   }
   p {
@@ -60,9 +60,9 @@
 @layer components {
   .eyebrow {
     font-family: var(--font-sans);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-brass-deep);
   }

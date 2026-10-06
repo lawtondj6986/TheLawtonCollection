@@ -29,7 +29,7 @@ export default function SouthShorePage() {
             <p className="eyebrow">Hometown</p>
             <h2 className="mt-3 text-[2.6rem]">Brockton</h2>
             <Rule className="mt-5" />
-            <p className="mt-5 text-ink/85">{brockton.summary}</p>
+            <p className="mt-5 text-ink/90">{brockton.summary}</p>
             <p className="mt-6 font-semibold text-navy">
               <span className="border-b border-brass/70 group-hover:border-navy">Read the Brockton page</span>
               <span aria-hidden> →</span>
@@ -44,11 +44,11 @@ export default function SouthShorePage() {
           {southShoreTowns.map((town) => (
             <li key={town.name} className="border-b border-line py-5">
               <p className="font-serif text-[1.6rem] leading-tight text-navy">{town.name}</p>
-              <p className="mt-1 text-ink/80">{town.note}</p>
+              <p className="mt-1 text-ink/90">{town.note}</p>
             </li>
           ))}
         </ul>
-        <p className="mt-6 max-w-2xl text-[0.95rem] text-shingle-deep">
+        <p className="mt-6 max-w-2xl text-base text-shingle-deep">
           No market statistics here on purpose. Ask about a specific town or street and Michelle will send you
           current, real numbers.
         </p>

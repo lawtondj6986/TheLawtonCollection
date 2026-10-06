@@ -54,7 +54,7 @@ export default async function ListingPage({ params }: { params: Promise<Params> 
     <>
       {listing.sample ? (
         <div className="border-b border-[#9b2c2c]/30 bg-white">
-          <Container className="flex items-center gap-3 py-3 text-[0.95rem]">
+          <Container className="flex items-center gap-3 py-3 text-base">
             <SampleBadge />
             <span>This is a sample listing that shows the layout. It is not a home for sale.</span>
           </Container>
@@ -62,7 +62,7 @@ export default async function ListingPage({ params }: { params: Promise<Params> 
       ) : null}
 
       <Container className="pt-10 sm:pt-14">
-        <nav aria-label="Breadcrumb" className="text-[0.92rem] text-shingle-deep">
+        <nav aria-label="Breadcrumb" className="text-base text-shingle-deep">
           <Link href="/collection" className="link">The Collection</Link>
           <span aria-hidden className="mx-2">/</span>
           <span aria-current="page">{place}</span>
@@ -105,7 +105,7 @@ export default async function ListingPage({ params }: { params: Promise<Params> 
         <aside aria-labelledby="inquire" className="md:sticky md:top-6 md:self-start">
           <div className="border border-line bg-white p-6 sm:p-8">
             <h2 id="inquire" className="text-[1.9rem]">Ask about this house</h2>
-            <p className="mt-2 text-[0.98rem] text-ink/80">A showing, a question, or a second look. Michelle will reply herself.</p>
+            <p className="mt-2 text-base text-ink/90">A showing, a question, or a second look. Michelle will reply herself.</p>
             <div className="mt-6">
               <LeadForm kind="listing" listing={listing.slug} source={`/collection/${listing.slug}`} market={listing.market} submitLabel="Ask Michelle" />
             </div>

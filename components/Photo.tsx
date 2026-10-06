@@ -55,7 +55,7 @@ export function Photo({ src, alt, aspect = "aspect-[4/3]", className = "", prior
     >
       <div aria-hidden className="absolute inset-0" style={{ backgroundImage: SHINGLES }} />
       <div className="absolute inset-x-0 bottom-0 border-t border-line bg-sand px-5 py-4">
-        <p className="eyebrow text-[0.7rem]">Photograph to come</p>
+        <p className="eyebrow text-[0.8rem]">Photograph to come</p>
         <p className="mt-1 max-w-md font-serif text-lg leading-snug text-navy italic">{alt}</p>
       </div>
     </div>

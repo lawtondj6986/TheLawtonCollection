@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StructuredData } from "@/components/StructuredData";
+import { CallBar } from "@/components/CallBar";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -50,13 +51,14 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${sourceSans.variable}`}>
-      <body className="flex min-h-dvh flex-col">
+      <body className="flex min-h-dvh flex-col pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0">
         <StructuredData />
         <Header />
         <main id="main" className="flex-1">
           {children}
         </main>
         <Footer />
+        <CallBar />
       </body>
     </html>
   );

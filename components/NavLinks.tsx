@@ -16,10 +16,10 @@ export function NavLinks({ items }: { items: readonly Item[] }) {
             <Link
               href={item.href}
               aria-current={current ? "page" : undefined}
-              className={`inline-block border-b py-3 text-[0.95rem] tracking-wide transition-colors ${
+              className={`inline-block border-b py-3 text-base tracking-wide transition-colors ${
                 current
                   ? "border-brass font-semibold text-navy"
-                  : "border-transparent text-ink/80 hover:border-brass/60 hover:text-navy"
+                  : "border-transparent text-ink/90 hover:border-brass/60 hover:text-navy"
               }`}
             >
               {item.label}
