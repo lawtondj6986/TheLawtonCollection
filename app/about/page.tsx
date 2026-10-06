@@ -2,11 +2,12 @@ import { Container, ButtonLink, Rule } from "@/components/ui";
 import { Monogram } from "@/components/Monogram";
 import { pageMeta } from "@/lib/metadata";
 import { mailHref, site, telHref } from "@/lib/site";
+import { awards, designations } from "@/content/credentials";
 
 export const metadata = pageMeta({
   title: "About",
   description:
-    "Michelle Lawton grew up in Brockton and helps families buy and sell homes in Falmouth, the Upper Cape, and across the South Shore.",
+    "Michelle Lawton grew up in Brockton. A Broker Associate with CENTURY 21 North East (SRES, ABR), she helps families buy and sell in Falmouth, the Upper Cape, and across the South Shore.",
   path: "/about",
 });
 
@@ -35,6 +36,9 @@ function FamilyCard() {
       <span aria-hidden className="mx-auto mt-4 block h-px w-14 bg-navy/60" />
       <p className="mt-4 font-serif text-[2.6rem] leading-none">{site.name}</p>
       <p className="mt-2 font-serif text-[1.1rem] tracking-[0.2em]">real estate</p>
+      <p className="mt-2 text-[0.8rem] tracking-[0.14em] text-ink/75 uppercase">
+        {site.title} · {site.brokerage}
+      </p>
       <span aria-hidden className="mx-auto mt-4 block h-px w-14 bg-navy/60" />
       <p className="mt-4 font-serif text-[1.3rem]">Cape Cod and the South Shore</p>
       <p className="mt-2 font-serif text-[1.3rem]">Brockton native</p>
@@ -88,6 +92,39 @@ export default function AboutPage() {
             </a>
             .
           </p>
+
+          <section aria-labelledby="credentials" className="mt-14 max-w-2xl">
+            <h2 id="credentials" className="text-[1.9rem]">Credentials</h2>
+            <p className="mt-3 text-ink/90">
+              {site.title} with {site.brokerage}, {site.office.city}.
+            </p>
+            <dl className="mt-6 border-t border-line">
+              {designations.map((d) => (
+                <div key={d.short} className="grid gap-1 border-b border-line py-4 sm:grid-cols-[6rem_1fr] sm:gap-6">
+                  <dt className="font-serif text-[1.5rem] leading-none text-navy">{d.short}</dt>
+                  <dd>
+                    <span className="font-semibold text-navy">{d.name}.</span>{" "}
+                    <span className="text-ink/85">{d.note}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <ul className="mt-6 space-y-1.5">
+              {awards.map((a) => (
+                <li key={a.name} className="flex gap-3 text-ink/90">
+                  <span aria-hidden className="mt-[0.8em] h-px w-4 shrink-0 bg-brass" />
+                  <span>
+                    {a.name}, {a.years}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5">
+              <a href={site.profileUrl} target="_blank" rel="noopener" className="link">
+                See Michelle&rsquo;s CENTURY 21 profile<span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </p>
+          </section>
 
           <div className="mt-12 max-w-2xl border-l-2 border-brass pl-6">
             <h2 className="text-[1.9rem]">Family counsel</h2>

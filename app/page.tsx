@@ -14,7 +14,7 @@ export const metadata = {
   ...pageMeta({
     title: "Cape Cod & the South Shore",
     description:
-      "Michelle Lawton helps families buy and sell homes in Falmouth, the Upper Cape, Brockton, and the South Shore. Brockton roots. Straight advice.",
+      "Michelle Lawton, Broker Associate with CENTURY 21 North East, helps families buy and sell homes in Falmouth, the Upper Cape, Brockton, and the South Shore. Brockton roots. Straight advice.",
     path: "/",
   }),
   title: { absolute: `${site.name} · ${site.brand}` },
@@ -92,10 +92,15 @@ export default function HomePage() {
       {/* Proof line and second action, at the fold. */}
       <section aria-label="About Michelle" className="border-b border-line bg-salt">
         <Container className="flex flex-col gap-4 py-6 md:flex-row md:items-center md:justify-between">
-          <p className="text-[1.05rem] text-ink">
-            <span className="font-semibold text-navy">Brockton native.</span> Helping families buy and sell on Cape Cod
-            and the South Shore, from a first home in Brockton to a family house in West Falmouth.
-          </p>
+          <div>
+            <p className="text-[1.05rem] text-ink">
+              <span className="font-semibold text-navy">Brockton native.</span> Helping families buy and sell on Cape
+              Cod and the South Shore, from a first home in Brockton to a family house in West Falmouth.
+            </p>
+            <p className="mt-1 text-[0.92rem] text-shingle-deep">
+              {site.title}, {site.brokerage} · SRES · ABR · CENTURY 21 Masters Emerald Award
+            </p>
+          </div>
           <Link href="/home-value" className="shrink-0 font-semibold text-navy">
             <span className="border-b border-brass">What is my home worth?</span> <span aria-hidden>→</span>
           </Link>

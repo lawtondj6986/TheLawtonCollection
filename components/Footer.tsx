@@ -61,8 +61,14 @@ export function Footer() {
                   {site.email}
                 </a>
               </li>
-              <li data-slot="brokerage" className="pb-2 text-[0.92rem] text-salt/75">
-                Brokerage: <span className="text-salt">{site.brokerage}</span>
+              <li data-slot="brokerage" className="pb-2 text-[0.92rem] leading-snug text-salt/75">
+                <span className="text-salt">
+                  {site.title}, {site.brokerage}
+                </span>
+                <br />
+                {site.office.street}
+                <br />
+                {site.office.city}, {site.office.region} {site.office.postalCode}
               </li>
               <li>
                 <Link href="/contact" className="hover:text-salt hover:underline">
@@ -74,6 +80,11 @@ export function Footer() {
                   What is my home worth?
                 </Link>
               </li>
+              <li>
+                <a href={site.profileUrl} target="_blank" rel="noopener" className="hover:text-salt hover:underline">
+                  Michelle&rsquo;s CENTURY 21 profile<span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -83,10 +94,10 @@ export function Footer() {
         <Container className="grid gap-4 py-8 text-[0.9rem] leading-relaxed text-salt/75 md:grid-cols-2 md:gap-10">
           <div className="space-y-1.5">
             <p>
-              <span className="text-salt">{site.name}</span> · Real estate
+              <span className="text-salt">{site.name}</span> · {site.title}, {site.brokerage}
             </p>
             {site.license ? <p>Massachusetts license {site.license}</p> : null}
-            <p>Equal Housing Opportunity.</p>
+            <p>Each CENTURY 21 office is independently owned and operated. Equal Housing Opportunity.</p>
           </div>
           <div className="space-y-1.5 md:text-right">
             <p>

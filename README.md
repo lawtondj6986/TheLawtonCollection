@@ -20,7 +20,10 @@ With no Supabase or Resend keys the site still runs. Form submissions are valida
 | Variable | Where | Purpose |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | public | Canonical URL, used for metadata, the sitemap and Open Graph. Defaults to `https://thelawtoncollection.com`. |
-| `NEXT_PUBLIC_BROKERAGE_NAME` | public | Brokerage shown in the footer (required by Massachusetts advertising rules). Defaults to "Brokerage name on file". |
+| `NEXT_PUBLIC_BROKERAGE_NAME` | public | Brokerage shown in the footer (required by Massachusetts advertising rules). Defaults to `CENTURY 21 North East`. |
+| `NEXT_PUBLIC_AGENT_TITLE` | public | Michelle's title. Defaults to `Broker Associate`. |
+| `NEXT_PUBLIC_OFFICE_STREET` / `_CITY` / `_ZIP` | public | Brokerage office address. Defaults to 700 West Center Street, Suite 13, West Bridgewater, MA 02379. |
+| `NEXT_PUBLIC_C21_PROFILE_URL` | public | Link to her CENTURY 21 agent profile (footer, About, structured data). |
 | `NEXT_PUBLIC_PHONE` | public | Phone as displayed. Defaults to `508-942-1180`. |
 | `NEXT_PUBLIC_PHONE_TEL` | public | Phone for `tel:` links. Defaults to `+15089421180`. |
 | `NEXT_PUBLIC_EMAIL` | public | Public email for the header menu, footer, contact and About pages. Defaults to `Michelle.lawton@comcast.net`. |
@@ -103,6 +106,7 @@ Row level security is on with no policies, so only the server (service role) can
 ## Content
 
 - **Listings**: `content/listings.ts`. Typed, manual entries. Put photos in `public/listings/<slug>/`. Until a photo file exists, the site shows a described placeholder. Delete the two `sample: true` entries before launch. `lib/listings.ts` marks where an IDX adapter would go. Cape Cod & Islands MLS and MLS PIN are separate feeds and each needs the broker's signed agreement first.
+- **Credentials**: `content/credentials.ts`. Designations and awards as shown on her CENTURY 21 profile. Add only what is on record.
 - **Villages and towns**: `content/places.ts`. Local notes only: no prices, ratings or statistics.
 - **Photography**: `content/images.ts`. Crops in `public/brand/crops/` come from the brand references in `public/brand/` (original filenames kept). These are direction images and are never shown as a listing.
 - **Monogram**: `lib/monogram.ts`. Traced from `public/brand/02-name-lockup.jpg`. One path drives the header, the footer, the favicon (`app/icon.tsx`) and the Open Graph image (`app/opengraph-image.tsx`).

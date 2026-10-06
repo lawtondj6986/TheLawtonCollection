@@ -63,7 +63,17 @@ export default function ContactPage() {
         </div>
         <aside aria-label="Michelle's card" className="space-y-8">
           <Cards />
-          <p className="text-ink/85">Working on Cape Cod and across the South Shore.</p>
+          <div className="space-y-1 text-ink/85">
+            <p className="font-semibold text-navy">
+              {site.title}, {site.brokerage}
+            </p>
+            <address className="not-italic">
+              {site.office.street}
+              <br />
+              {site.office.city}, {site.office.region} {site.office.postalCode}
+            </address>
+            <p className="pt-2">Working on Cape Cod and across the South Shore.</p>
+          </div>
         </aside>
       </Container>
     </>

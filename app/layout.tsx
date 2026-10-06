@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { StructuredData } from "@/components/StructuredData";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -20,7 +21,7 @@ const sourceSans = Source_Sans_3({
 });
 
 const description =
-  "Michelle Lawton helps families buy and sell homes in Falmouth, the Upper Cape, Brockton, and the South Shore. Brockton roots. Straight advice.";
+  "Michelle Lawton, Broker Associate with CENTURY 21 North East, helps families buy and sell homes in Falmouth, the Upper Cape, Brockton, and the South Shore. Brockton roots. Straight advice.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${cormorant.variable} ${sourceSans.variable}`}>
       <body className="flex min-h-dvh flex-col">
+        <StructuredData />
         <Header />
         <main id="main" className="flex-1">
           {children}
