@@ -91,13 +91,27 @@ alter table public.leads enable row level security;
 alter table public.subscribers enable row level security;
 ```
 
-Row level security is on with no policies, so only the server (service role) can read or write. Read leads in the Supabase table editor, or export them to CSV.
+Row level security is on with no policies, so only the server (service role) can read or write. The public (anon) key is refused. The script is safe to run more than once.
+
+**Setup, start to finish**
+
+1. Create a free project at [supabase.com](https://supabase.com) (region: US East).
+2. **SQL Editor → New query**: paste [`supabase/schema.sql`](supabase/schema.sql) and click **Run**.
+3. **Project Settings → API Keys**: copy the **Project URL** and the **secret** key (`sb_secret_…`, or the legacy `service_role` key). Never the publishable/anon key.
+4. In Vercel, **Settings → Environment Variables** (Production and Preview), add `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, and `RATE_LIMIT_SALT` (any long random string).
+5. **Deployments → ⋯ → Redeploy** so the new variables take effect.
+6. Open `https://<your-site>/api/form-health`. It should say `"database":"ok"` and `"leadsWork":true`. It shows status words only, no data or keys.
+7. Send one test message from the Contact page and look for it in **Table Editor → leads**.
+
+Read leads in the Supabase table editor, or export them to CSV.
+
+**What the forms were tested against**: the schema above loaded into Postgres 16 behind PostgREST (the API layer Supabase uses), with Supabase's `anon` and `service_role` roles. Contact, home value, town pages, and the market update all store correctly; the honeypot stores nothing; repeat sign-ups update one subscriber row; the anon key is refused by row level security; the rate limit stops a sixth submission from one IP within ten minutes.
 
 ## How the forms work
 
 - Server actions in `app/actions.ts` handle every form and validate on the server.
 - **Honeypot**: a hidden `website` field. If it's filled in, the submission is quietly dropped.
-- **Rate limit**: at most 5 submissions per salted, hashed IP in 10 minutes, counted across both tables. The raw IP is never stored.
+- **Rate limit**: at most 5 submissions per salted, hashed IP in 10 minutes, counted across both tables (a market-update box ticked on another form does not count twice). The raw IP is never stored.
 - Each lead stores its `source_page` and `market` (`cape` or `south_shore`). Listing inquiries also store the listing slug.
 - The market-letter checkbox is unchecked by default. Checking it adds the email to `subscribers`.
 - If `RESEND_API_KEY` is set, Michelle gets a plain-text email at `LEAD_TO_EMAIL` with Reply-To set to the sender. Without it, the lead is still stored in Supabase and the visitor still sees the thank-you page.

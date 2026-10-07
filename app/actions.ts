@@ -134,7 +134,8 @@ export async function submitLead(_prev: FormState, form: FormData): Promise<Form
           consent: true,
           consented_at: new Date().toISOString(),
           unsubscribed_at: null,
-          ip_hash: ipHash,
+          // No ip_hash here: the lead row already counts toward the rate
+          // limit, so ticking the box doesn't count as a second submission.
           updated_at: new Date().toISOString(),
         },
         { onConflict: "email" },
