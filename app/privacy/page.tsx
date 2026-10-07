@@ -62,8 +62,7 @@ export default function PrivacyPage() {
           ))}
           <p className="text-base text-shingle-deep">
             Questions? <Link href="/contact" className="link">Contact Michelle</Link>. Real estate services are provided
-            through {site.brokerage}, {site.office.street}, {site.office.city}, {site.office.region}{" "}
-            {site.office.postalCode}.
+            through {site.brokerage}.
           </p>
         </div>
       </Container>

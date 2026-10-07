@@ -1,45 +1,45 @@
-import Link from "next/link";
 import { Container, PageHeader, ButtonLink, Rule } from "@/components/ui";
-import { Photo } from "@/components/Photo";
-import { brockton, southShoreTowns } from "@/content/places";
-import { images } from "@/content/images";
+import { FrameCard } from "@/components/Cards";
+import { brockton, easton, southShoreTowns } from "@/content/places";
+import { placeImages } from "@/content/images";
 import { pageMeta } from "@/lib/metadata";
+import { site, telHref } from "@/lib/site";
 
 export const metadata = pageMeta({
   title: "South Shore",
   description:
-    "Brockton first, then Quincy, Plymouth, Abington, Whitman, and Bridgewater. Michelle Lawton helps South Shore families buy and sell with straight advice.",
+    "Easton and Greater Brockton: Easton, Brockton, West Bridgewater, East Bridgewater, Bridgewater, Stoughton, and nearby towns. Straight advice from Michelle Lawton, CENTURY 21 North East.",
   path: "/south-shore",
 });
 
 export default function SouthShorePage() {
   return (
     <>
-      <PageHeader eyebrow="South Shore" title="Brockton first, and the towns around it">
+      <PageHeader eyebrow="South Shore" title="Easton and Greater Brockton">
         <p>
-          This is home. Michelle grew up in Brockton and works across the South Shore, with first-time buyers,
-          growing families, and people selling the house they were raised in.
+          This is home. Michelle grew up on the South Shore and works with first-time buyers, growing families, and
+          people selling the house they were raised in.
         </p>
       </PageHeader>
 
       <Container>
-        <Link href={brockton.path} className="group grid items-stretch border border-line bg-white md:grid-cols-2">
-          <Photo src={images.southShoreStreet.src} alt={images.southShoreStreet.alt} aspect="aspect-[4/3] md:aspect-auto md:h-full md:min-h-[26rem]" position="object-[50%_45%]" sizes="(min-width: 768px) 50vw, 100vw" />
-          <div className="flex flex-col justify-center p-7 sm:p-10">
-            <p className="eyebrow">Hometown</p>
-            <h2 className="mt-3 text-[2.6rem]">Brockton</h2>
-            <Rule className="mt-5" />
-            <p className="mt-5 text-ink/90">{brockton.summary}</p>
-            <p className="mt-6 font-semibold text-navy">
-              <span className="border-b border-brass/70 group-hover:border-navy">Read the Brockton page</span>
-              <span aria-hidden> →</span>
-            </p>
-          </div>
-        </Link>
+        <div className="grid gap-12 md:grid-cols-2 md:gap-6">
+          {[easton, brockton].map((place) => (
+            <FrameCard
+              key={place.slug}
+              href={place.path}
+              kicker="South Shore"
+              title={place.name}
+              summary={place.summary}
+              image={placeImages[place.slug]}
+            />
+          ))}
+        </div>
       </Container>
 
       <Container className="mt-20">
-        <h2 className="text-[2.2rem]">Also on the South Shore</h2>
+        <h2 className="text-[2.2rem]">Also in Greater Brockton</h2>
+        <Rule className="mt-4" />
         <ul className="mt-8 grid gap-x-10 border-t border-line sm:grid-cols-2">
           {southShoreTowns.map((town) => (
             <li key={town.name} className="border-b border-line py-5">
@@ -52,11 +52,14 @@ export default function SouthShorePage() {
           You won&rsquo;t find made-up averages here. Ask about a town or a street and Michelle will send you real,
           current numbers.
         </p>
-        <div className="mt-10 flex flex-wrap gap-3">
+        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
           <ButtonLink href="/contact">Talk with Michelle</ButtonLink>
           <ButtonLink href="/home-value" variant="secondary">
             What is my home worth?
           </ButtonLink>
+          <a href={telHref} className="text-lg font-semibold text-navy underline decoration-brass underline-offset-4">
+            or call {site.phone}
+          </a>
         </div>
       </Container>
     </>

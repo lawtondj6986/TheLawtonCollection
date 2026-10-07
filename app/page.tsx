@@ -5,7 +5,8 @@ import { Monogram } from "@/components/Monogram";
 import { ListingCard } from "@/components/Cards";
 import { SubscribeForm } from "@/components/SubscribeForm";
 import { images } from "@/content/images";
-import { brockton, southShoreTowns, villages } from "@/content/places";
+import { brockton, capeTowns, easton, southShoreTowns } from "@/content/places";
+import { Headshot } from "@/components/Headshot";
 import { getListings } from "@/lib/listings";
 import { faq } from "@/content/faq";
 import { pageMeta } from "@/lib/metadata";
@@ -15,7 +16,7 @@ export const metadata = {
   ...pageMeta({
     title: "Cape Cod & the South Shore",
     description:
-      "Michelle Lawton, Broker Associate with CENTURY 21 North East, helps families buy and sell homes in Falmouth, the Upper Cape, Brockton, and the South Shore. Brockton roots. Straight advice.",
+      "Michelle Lawton, Broker Associate with CENTURY 21 North East, helps families buy and sell homes in Falmouth, Mashpee, Bourne, and Barnstable, and in Easton and Greater Brockton. South Shore roots. Straight advice.",
     path: "/",
   }),
   title: { absolute: `${site.name} · ${site.brand}` },
@@ -96,11 +97,11 @@ export default function HomePage() {
         <Container className="flex flex-col gap-4 py-6 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-[1.05rem] text-ink">
-              <span className="font-semibold text-navy">Brockton native.</span> Helping families buy and sell on Cape
-              Cod and the South Shore, from a first home in Brockton to a family house in West Falmouth.
+              <span className="font-semibold text-navy">{site.native}.</span> Helping families buy and sell in
+              Falmouth and the Upper Cape, and in Easton and Greater Brockton.
             </p>
             <p className="mt-1 text-base text-shingle-deep">
-              {site.title} with {site.brokerage} in {site.office.city}. Award-winning, and easy to reach.
+              {site.title} with {site.brokerage}. Award-winning, and easy to reach.
             </p>
           </div>
           <Link href="/home-value" className="shrink-0 font-semibold text-navy">
@@ -120,18 +121,18 @@ export default function HomePage() {
           </div>
           <div className="mt-12 grid gap-10 md:grid-cols-2 md:gap-6">
             <ShoreCard
-              href="/south-shore"
-              caption="South Shore"
-              image={images.southShoreStreet}
-              places={[brockton.name, ...southShoreTowns.map((t) => t.name)]}
-              line="Brockton first, and the towns around it."
-            />
-            <ShoreCard
               href="/cape-cod"
               caption="Cape Cod"
               image={images.capeShore}
-              places={["Falmouth", ...villages.map((v) => v.name)]}
+              places={["Falmouth", ...capeTowns.map((t) => t.name)]}
               line="Falmouth and the Upper Cape."
+            />
+            <ShoreCard
+              href="/south-shore"
+              caption="South Shore"
+              image={images.southShoreStreet}
+              places={[easton.name, brockton.name, ...southShoreTowns.slice(0, 4).map((t) => t.name)]}
+              line="Easton and Greater Brockton."
             />
           </div>
         </Container>
@@ -139,10 +140,18 @@ export default function HomePage() {
 
       <section aria-labelledby="how" className="border-y border-line bg-sand/60 py-20 sm:py-24">
         <Container>
-          <p className="eyebrow">How Michelle works</p>
-          <h2 id="how" className="mt-3 max-w-2xl text-4xl sm:text-5xl">
-            A known local person who tells you the truth about a house.
-          </h2>
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-end">
+            <Headshot className="w-40 shrink-0 sm:w-44" />
+            <div>
+              <p className="eyebrow">How Michelle works</p>
+              <h2 id="how" className="mt-3 max-w-2xl text-4xl sm:text-5xl">
+                A known local person who tells you the truth about a house.
+              </h2>
+              <Link href="/about" className="mt-4 inline-block font-semibold text-navy">
+                <span className="border-b border-brass">Meet Michelle</span> <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </div>
           <div className="mt-12 grid gap-10 md:grid-cols-3">
             {[
               {
@@ -155,7 +164,7 @@ export default function HomePage() {
               },
               {
                 title: "One call for both shores",
-                body: "Moving from Brockton to the Cape, or from the Cape back near family? Michelle knows both areas and the people in them.",
+                body: "Moving from the South Shore to the Cape, or from the Cape back near family? Michelle knows both areas and the people in them.",
               },
             ].map((item) => (
               <div key={item.title}>
@@ -276,7 +285,7 @@ function ShoreCard({
       <p className="mt-1 text-ink/90">{line}</p>
       <p className="mt-2 text-base text-shingle-deep">{places.join(" · ")}</p>
       <p className="mt-4 font-semibold text-navy">
-        <span className="border-b border-brass/70 group-hover:border-navy">Explore the {caption}</span>
+        <span className="border-b border-brass/70 group-hover:border-navy">Explore {caption === "Cape Cod" ? caption : `the ${caption}`}</span>
         <span aria-hidden> →</span>
       </p>
     </Link>

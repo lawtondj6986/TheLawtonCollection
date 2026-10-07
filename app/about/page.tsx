@@ -3,11 +3,12 @@ import { Monogram } from "@/components/Monogram";
 import { pageMeta } from "@/lib/metadata";
 import { mailHref, site, telHref } from "@/lib/site";
 import { awards, designations } from "@/content/credentials";
+import { Headshot } from "@/components/Headshot";
 
 export const metadata = pageMeta({
   title: "About",
   description:
-    "Michelle Lawton grew up in Brockton. A Broker Associate with CENTURY 21 North East (SRES, ABR), she helps families buy and sell in Falmouth, the Upper Cape, and across the South Shore.",
+    "Michelle Lawton grew up on the South Shore. A Broker Associate with CENTURY 21 North East (SRES, ABR), she helps families buy and sell in Falmouth and the Upper Cape, and in Easton and Greater Brockton.",
   path: "/about",
 });
 
@@ -41,7 +42,7 @@ function FamilyCard() {
       </p>
       <span aria-hidden className="mx-auto mt-4 block h-px w-14 bg-navy/60" />
       <p className="mt-4 font-serif text-[1.3rem]">Cape Cod and the South Shore</p>
-      <p className="mt-2 font-serif text-[1.3rem]">Brockton native</p>
+      <p className="mt-2 font-serif text-[1.3rem]">{site.native}</p>
       <span aria-hidden className="mx-auto mt-6 block h-px w-10 bg-brass" />
       <p className="mt-6 font-serif text-[1.15rem] leading-snug text-ink/90">
         Family counsel:
@@ -62,23 +63,24 @@ export default function AboutPage() {
       <Container className="grid gap-12 pt-14 pb-16 sm:pt-20 md:grid-cols-[1fr_22rem] md:gap-16 lg:grid-cols-[1fr_26rem]">
         <div>
           <p className="eyebrow">About Michelle</p>
-          <h1 className="mt-4 text-[2.6rem] sm:text-6xl">Brockton roots. Straight advice.</h1>
+          <h1 className="mt-4 text-[2.6rem] sm:text-6xl">{site.line}</h1>
           <Rule className="mt-7" />
           <div className="prose-quiet mt-8 max-w-2xl text-lg text-ink/90">
             <p>
-              I grew up in Brockton. I learned early that a house is usually the biggest thing a family will ever
-              buy, and that people deserve someone who will tell them the truth about it.
+              I grew up on the South Shore. I learned early that a house is usually the biggest thing a family will
+              ever buy, and that people deserve someone who will tell them the truth about it.
             </p>
             <p>
-              Today I help people buy and sell on the South Shore and on Cape Cod, mostly in Falmouth and the Upper
-              Cape. Some of my clients are buying their first place in Brockton. Some are selling a house that has
-              been in the family for fifty years. Some are moving between the two. I give all of them the same
-              thing: a clear plan, an honest price, and a phone that gets answered.
+              Today I help people buy and sell in two places I know well. On Cape Cod, that&rsquo;s Falmouth and the
+              Upper Cape: Mashpee, Bourne, and Barnstable. On the South Shore, it&rsquo;s Easton and Greater
+              Brockton. Some of my clients are buying their first home. Some are selling a house that has been in the
+              family for fifty years. Some are moving between the two. I give all of them the same thing: a clear
+              plan, an honest price, and a phone that gets answered.
             </p>
             <p>
               I work with a lot of people who work shifts, including nurses, firefighters, police officers, and
               teachers. I plan around your schedule. And when a waterfront home comes my way, it gets the same care
-              and the same straight talk as a three-bedroom on the West Side.
+              and the same straight talk as a three-bedroom ranch.
             </p>
           </div>
           <p className="mt-6 text-lg text-navy">
@@ -96,7 +98,7 @@ export default function AboutPage() {
           <section aria-labelledby="credentials" className="mt-14 max-w-2xl">
             <h2 id="credentials" className="text-[1.9rem]">Credentials</h2>
             <p className="mt-3 text-ink/90">
-              {site.title} with {site.brokerage}, {site.office.city}.
+              {site.title} with {site.brokerage}.
             </p>
             <dl className="mt-6 border-t border-line">
               {designations.map((d) => (
@@ -144,7 +146,15 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <aside aria-label="The Lawton Collection mark" className="md:pt-4">
+        <aside aria-label="Michelle Lawton" className="space-y-8 md:pt-4">
+          <figure>
+            <Headshot priority className="w-full max-w-[16rem]" />
+            <figcaption className="mt-3 text-base text-ink/90">
+              <span className="font-semibold text-navy">{site.name}</span>
+              <br />
+              {site.title}, {site.brokerage}
+            </figcaption>
+          </figure>
           <PrimaryMarkPanel />
         </aside>
       </Container>

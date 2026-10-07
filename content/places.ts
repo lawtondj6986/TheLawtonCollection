@@ -95,9 +95,9 @@ export const brockton: Place = {
   market: "south_shore",
   path: "/south-shore/brockton",
   town: "Brockton",
-  summary: "The city Michelle grew up in. Real neighborhoods, fair prices, and three train stops to Boston.",
+  summary: "The biggest city in Greater Brockton. Real neighborhoods, fair prices, and three train stops to Boston.",
   localNote: [
-    "Brockton is Michelle's hometown, the City of Champions. She knows the West Side, Campello, Montello, and the streets around D.W. Field Park, and she knows how hard people here work for what they have.",
+    "Brockton is the City of Champions. Every part of it is different: the West Side, Campello, Montello, and the streets around D.W. Field Park. Michelle knows them, and she knows how hard people here work for what they have.",
     "A lot of first homes here are single-families or two- and three-family houses. Renting out the other units can help pay the mortgage. The commuter rail stops at Montello, Brockton, and Campello.",
   ],
   forWhom: [
@@ -112,12 +112,108 @@ export const brockton: Place = {
   ],
 };
 
+export const easton: Place = {
+  slug: "easton",
+  name: "Easton",
+  market: "south_shore",
+  path: "/south-shore/easton",
+  town: "Easton",
+  summary: "North Easton and South Easton: old stone buildings, big yards, and room to breathe.",
+  localNote: [
+    "Easton is two villages in one town. North Easton has the old Ames shovel works, Stonehill College, and some of the best-known stone buildings in the state. South Easton is quieter and more spread out.",
+    "Many homes here sit on bigger lots than you'll find closer to Boston. Borderland State Park is on the town line, with trails and ponds for the whole family.",
+  ],
+  forWhom: [
+    "Families who want a bigger yard and a quieter street",
+    "Buyers moving up from a first home in Brockton or nearby",
+    "Owners of a longtime family home thinking about selling",
+  ],
+  askAbout: [
+    "Town water or a private well, and town sewer or a septic system (Title 5)",
+    "Older homes: what the inspection usually turns up",
+    "Commute times to Route 24, Route 138, and the nearest train stations",
+  ],
+};
+
+export const capeTowns: Place[] = [
+  {
+    slug: "mashpee",
+    name: "Mashpee",
+    market: "cape",
+    path: "/cape-cod/mashpee",
+    town: "Mashpee",
+    summary: "Ponds, South Cape Beach, and Mashpee Commons, right next door to Falmouth.",
+    localNote: [
+      "Mashpee sits between Falmouth and Barnstable. It has freshwater ponds, South Cape Beach on Nantucket Sound, and Mashpee Commons for shopping and dinner. It is also home to the Mashpee Wampanoag Tribe.",
+      "Homes range from year-round neighborhoods near the ponds to communities like New Seabury and Popponesset near the water, some with their own associations and rules.",
+    ],
+    forWhom: [
+      "Year-round families who want ponds and beaches close by",
+      "People moving to the Cape full time",
+      "Owners of a second home thinking about selling",
+    ],
+    askAbout: [
+      "Association fees and rules in neighborhoods that have them",
+      "The septic system and its inspection (Title 5)",
+      "Whether the house is in a flood zone, and what that does to insurance",
+    ],
+  },
+  {
+    slug: "bourne",
+    name: "Bourne",
+    market: "cape",
+    path: "/cape-cod/bourne",
+    town: "Bourne",
+    summary: "The gateway to the Cape. Both canal bridges, quiet villages, and an easier drive off-Cape.",
+    localNote: [
+      "Bourne is where you cross onto the Cape. Both the Bourne and Sagamore bridges are here, and part of the town sits on the mainland side of the canal. That makes it a good fit for people who work off-Cape.",
+      "The town is a group of villages: Buzzards Bay, Sagamore Beach, Monument Beach, Pocasset, Cataumet, and Bournedale. Each has its own feel, from beach streets to wooded neighborhoods.",
+    ],
+    forWhom: [
+      "People who commute to the South Shore or Boston",
+      "Families who want Cape living with an easier drive",
+      "Owners of a family home or a beach house thinking about selling",
+    ],
+    askAbout: [
+      "Bridge traffic, especially in summer",
+      "The septic system and its inspection (Title 5)",
+      "Flood zones near the canal and the bay",
+    ],
+  },
+  {
+    slug: "barnstable",
+    name: "Barnstable",
+    market: "cape",
+    path: "/cape-cod/barnstable",
+    town: "Barnstable",
+    summary: "Hyannis, Centerville, Osterville, Cotuit, Marstons Mills, and more. Seven villages, one town.",
+    localNote: [
+      "Barnstable is the largest town on the Cape. Hyannis has Cape Cod Hospital, the airport, and the ferries to Nantucket and Martha's Vineyard. A lot of people who work on the Cape live here all year.",
+      "The villages are very different from each other: Hyannis is busy, while Centerville, Osterville, Cotuit, Marstons Mills, West Barnstable, and Barnstable Village are quieter, with older homes and ponds.",
+    ],
+    forWhom: [
+      "Nurses, first responders, and others who work in Hyannis",
+      "First-time buyers looking for a year-round home on the Cape",
+      "Families selling a longtime Cape home",
+    ],
+    askAbout: [
+      "Which village fits your commute and your budget",
+      "The septic system and its inspection (Title 5), or town sewer where it exists",
+      "Flood zones and insurance near the water",
+    ],
+  },
+];
+
 export const southShoreTowns = [
-  { name: "Quincy", note: "On the Red Line, with condos and older two-families near the water." },
-  { name: "Plymouth", note: "The biggest town in Massachusetts by land, from the harbor to the ponds." },
-  { name: "Abington", note: "A small town with a train stop to Boston." },
-  { name: "Whitman", note: "Friendly streets and its own train stop." },
+  { name: "West Bridgewater", note: "A small town with a country feel, right next to Brockton." },
+  { name: "East Bridgewater", note: "Quiet streets and bigger yards, east of Brockton." },
   { name: "Bridgewater", note: "A college town with bigger yards and a train into Boston." },
+  { name: "Stoughton", note: "A busy town center and its own train stop to Boston." },
+  { name: "Avon", note: "A small town right off Route 24." },
+  { name: "Whitman", note: "Friendly streets and its own train stop." },
+  { name: "Abington", note: "A small town with a train stop to Boston." },
 ] as const;
 
-export const allPlaces: Place[] = [...villages, brockton];
+export const capePlaces: Place[] = [...villages, ...capeTowns];
+
+export const allPlaces: Place[] = [...capePlaces, easton, brockton];

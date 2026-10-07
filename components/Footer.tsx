@@ -65,10 +65,6 @@ export function Footer() {
                 <span className="text-salt">
                   {site.title}, {site.brokerage}
                 </span>
-                <br />
-                {site.office.street}
-                <br />
-                {site.office.city}, {site.office.region} {site.office.postalCode}
               </li>
               <li>
                 <Link href="/contact" className="hover:text-salt hover:underline">

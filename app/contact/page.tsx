@@ -1,6 +1,7 @@
 import { Container, PageHeader } from "@/components/ui";
 import { Monogram } from "@/components/Monogram";
 import { LeadForm } from "@/components/LeadForm";
+import { Headshot } from "@/components/Headshot";
 import { pageMeta } from "@/lib/metadata";
 import { mailHref, site, telHref } from "@/lib/site";
 
@@ -20,7 +21,7 @@ function Cards() {
         <p className="mt-1.5 font-serif text-[1rem] italic">{site.brand}</p>
         <span aria-hidden className="mt-2.5 block h-px w-36 bg-navy/60" />
         <p className="mt-2.5 text-[0.8rem] tracking-[0.16em] uppercase">Cape Cod &amp; the South Shore</p>
-        <p className="mt-1 font-serif text-base italic">Brockton native</p>
+        <p className="mt-1 font-serif text-base italic">{site.native}</p>
       </div>
       <div className="flex aspect-[7/4] flex-col items-center justify-center bg-navy px-5 text-center text-salt">
         <p className="font-serif text-[2rem] leading-none tracking-[0.14em] uppercase">Real estate</p>
@@ -62,17 +63,20 @@ export default function ContactPage() {
           </div>
         </div>
         <aside aria-label="Michelle's card" className="space-y-8">
+          <figure className="flex items-center gap-5">
+            <Headshot className="w-28 shrink-0" />
+            <figcaption className="text-base text-ink/90">
+              <span className="font-serif text-[1.6rem] leading-tight text-navy">{site.name}</span>
+              <br />
+              Michelle answers her own phone.
+            </figcaption>
+          </figure>
           <Cards />
           <div className="space-y-1 text-ink/90">
             <p className="font-semibold text-navy">
               {site.title}, {site.brokerage}
             </p>
-            <address className="not-italic">
-              {site.office.street}
-              <br />
-              {site.office.city}, {site.office.region} {site.office.postalCode}
-            </address>
-            <p className="pt-2">Working on Cape Cod and across the South Shore.</p>
+            <p>Falmouth and the Upper Cape. Easton and Greater Brockton.</p>
           </div>
         </aside>
       </Container>

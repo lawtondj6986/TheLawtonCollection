@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { Container, Rule } from "./ui";
 import { Photo } from "./Photo";
+import { Monogram } from "./Monogram";
 import { LeadForm } from "./LeadForm";
 import { marketLabel, type Place } from "@/content/places";
 import { placeImages } from "@/content/images";
 
-// Shared layout for the village pages and the Brockton page: a short local
+// Shared layout for the village and town pages: a short local
 // note, who the page is for, and a form. No prices, ratings, or statistics.
 export function PlacePage({ place }: { place: Place }) {
   const parent = place.market === "cape" ? { href: "/cape-cod", label: "Cape Cod" } : { href: "/south-shore", label: "South Shore" };
@@ -29,8 +30,8 @@ export function PlacePage({ place }: { place: Place }) {
         <p className="mt-7 max-w-2xl text-lg text-ink/90">{place.summary}</p>
       </Container>
 
-      {image ? (
-        <Container className="mt-10">
+      <Container className="mt-10">
+        {image ? (
           <Photo
             src={image.src}
             alt={image.alt}
@@ -39,8 +40,15 @@ export function PlacePage({ place }: { place: Place }) {
             priority
             sizes="(min-width: 1152px) 1152px, 100vw"
           />
-        </Container>
-      ) : null}
+        ) : (
+          <div className="flex items-center gap-6 border-b border-brass bg-navy px-6 py-8 sm:px-10">
+            <Monogram className="h-14 w-auto shrink-0 text-brass sm:h-20" />
+            <p className="font-serif text-[1.6rem] leading-tight text-salt sm:text-[2.2rem]">
+              {place.name} <span className="text-brass">·</span> {marketLabel[place.market]}
+            </p>
+          </div>
+        )}
+      </Container>
 
       <Container className="mt-14 grid gap-14 md:grid-cols-[1fr_24rem] lg:grid-cols-[1fr_27rem] lg:gap-20">
         <div className="space-y-12">

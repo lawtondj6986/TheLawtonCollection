@@ -30,4 +30,5 @@ export const placeImages: Record<string, { src: string; alt: string; position: s
   "quissett-sippewissett": { ...images.porch, position: "object-[60%_50%]" },
   "west-falmouth": { ...images.hero, position: "object-[75%_60%]" },
   brockton: { ...images.colonialStreet, position: "object-[50%_60%]" },
+  easton: { ...images.southShoreStreet, position: "object-[50%_40%]" },
 };

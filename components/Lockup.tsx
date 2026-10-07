@@ -3,7 +3,7 @@ import { Monogram } from "./Monogram";
 import { site } from "@/lib/site";
 
 // Header lockup, after public/brand/01-primary-mark.jpg (cream name lockup):
-// monogram, MICHELLE LAWTON, the collection line, a short rule, "Brockton native".
+// monogram, MICHELLE LAWTON, the collection line, a short rule, "South Shore native".
 // Name first: it is the largest type in the lockup.
 export function Lockup() {
   return (
@@ -22,7 +22,7 @@ export function Lockup() {
         </span>
         <span aria-hidden className="mt-2.5 hidden h-px w-24 self-center bg-navy/70 sm:block" />
         <span className="mt-2 hidden self-center font-serif text-[0.92rem] leading-none tracking-[0.12em] text-navy sm:block">
-          Brockton native
+          {site.native}
         </span>
       </span>
     </Link>

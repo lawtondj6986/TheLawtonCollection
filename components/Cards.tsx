@@ -18,11 +18,13 @@ export function FrameCard({
   title: string;
   kicker: string;
   summary: string;
-  image: { src: string; alt: string; position?: string };
+  image?: { src: string; alt: string; position?: string };
 }) {
   return (
     <Link href={href} className="group block focus-visible:outline-offset-4">
-      <Photo src={image.src} alt={image.alt} position={image.position} aspect="aspect-[4/3]" sizes="(min-width: 768px) 33vw, 100vw" />
+      {image ? (
+        <Photo src={image.src} alt={image.alt} position={image.position} aspect="aspect-[4/3]" sizes="(min-width: 768px) 33vw, 100vw" />
+      ) : null}
       <div className="flex items-center justify-between gap-4 border-t border-brass bg-navy px-5 py-4">
         <div>
           <p className="text-[0.8rem] font-semibold tracking-[0.18em] text-brass uppercase">{kicker}</p>

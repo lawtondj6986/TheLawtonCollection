@@ -22,7 +22,6 @@ With no Supabase or Resend keys the site still runs. Form submissions are valida
 | `NEXT_PUBLIC_SITE_URL` | public | Canonical URL, used for metadata, the sitemap and Open Graph. Defaults to `https://thelawtoncollection.com`. |
 | `NEXT_PUBLIC_BROKERAGE_NAME` | public | Brokerage shown in the footer (required by Massachusetts advertising rules). Defaults to `CENTURY 21 North East`. |
 | `NEXT_PUBLIC_AGENT_TITLE` | public | Michelle's title. Defaults to `Broker Associate`. |
-| `NEXT_PUBLIC_OFFICE_STREET` / `_CITY` / `_ZIP` | public | Brokerage office address. Defaults to 700 West Center Street, Suite 13, West Bridgewater, MA 02379. |
 | `NEXT_PUBLIC_C21_PROFILE_URL` | public | Link to her CENTURY 21 agent profile (footer, About, structured data). |
 | `NEXT_PUBLIC_PHONE` | public | Phone as displayed. Defaults to `508-942-1180`. |
 | `NEXT_PUBLIC_PHONE_TEL` | public | Phone for `tel:` links. Defaults to `+15089421180`. |
