@@ -82,6 +82,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <a href="/michelle-lawton.vcf" download className="hover:text-salt hover:underline">
+                  Save Michelle&rsquo;s contact
+                </a>
+              </li>
+              <li>
                 <a href={site.profileUrl} target="_blank" rel="noopener" className="hover:text-salt hover:underline">
                   Michelle&rsquo;s CENTURY 21 profile<span className="sr-only"> (opens in a new tab)</span>
                 </a>

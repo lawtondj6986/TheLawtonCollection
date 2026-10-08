@@ -87,6 +87,11 @@ export function PlacePage({ place }: { place: Place }) {
               You won&rsquo;t find price averages or school ratings here. They change street by street and month by
               month. Ask, and Michelle will give you real numbers for the homes you care about.
             </p>
+            <p className="mt-4">
+              <Link href="/how-it-works" className="link font-semibold">
+                How buying and selling works, step by step
+              </Link>
+            </p>
           </section>
         </div>
 

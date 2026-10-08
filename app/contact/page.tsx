@@ -57,6 +57,14 @@ export default function ContactPage() {
                 {site.email}
               </a>
             </p>
+            <p className="mt-3">
+              <a href="/michelle-lawton.vcf" download className="inline-flex items-center gap-2 font-semibold text-navy">
+                <svg aria-hidden viewBox="0 0 24 24" className="size-5 fill-none stroke-brass-deep" strokeWidth="1.8">
+                  <path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span className="border-b border-brass">Save Michelle&rsquo;s contact to your phone</span>
+              </a>
+            </p>
           </section>
           <div className="border border-line bg-white p-6 sm:p-8">
             <LeadForm kind="contact" source="/contact" />

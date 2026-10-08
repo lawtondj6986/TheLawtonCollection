@@ -42,6 +42,11 @@ export default function HomeValuePage() {
             This is not an online estimate. Michelle gives you a real number after she sees the house and talks
             with you.
           </p>
+          <p className="mt-4">
+            <a href="/how-it-works#selling" className="link font-semibold">
+              See every step of selling a home
+            </a>
+          </p>
         </div>
 
         <div className="order-1 border border-line bg-white p-6 sm:p-8 md:order-2">

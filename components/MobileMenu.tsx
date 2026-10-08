@@ -73,6 +73,9 @@ export function MobileMenu({ items, phone, phoneHref, email, emailHref }: Props)
           <a href={emailHref} className="block py-1.5 text-[1.02rem] break-all text-navy select-text">
             {email}
           </a>
+          <a href="/michelle-lawton.vcf" download className="block py-1.5 text-[1.02rem] text-navy underline decoration-brass underline-offset-4">
+            Save Michelle&rsquo;s contact
+          </a>
         </div>
         <Link
           href="/contact"
