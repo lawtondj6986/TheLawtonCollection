@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/south-shore",
     "/collection",
     "/home-value",
+    "/how-it-works",
     "/contact",
     "/market-report",
     "/privacy",

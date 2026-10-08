@@ -138,9 +138,14 @@ export default function HomePage() {
               <h2 id="how" className="mt-3 max-w-2xl text-4xl sm:text-5xl">
                 A known local person who tells you the truth about a house.
               </h2>
-              <Link href="/about" className="mt-4 inline-block font-semibold text-navy">
-                <span className="border-b border-brass">Meet Michelle</span> <span aria-hidden>→</span>
-              </Link>
+              <p className="mt-4 flex flex-wrap gap-x-7 gap-y-2">
+                <Link href="/about" className="font-semibold text-navy">
+                  <span className="border-b border-brass">Meet Michelle</span> <span aria-hidden>→</span>
+                </Link>
+                <Link href="/how-it-works" className="font-semibold text-navy">
+                  <span className="border-b border-brass">How buying and selling works</span> <span aria-hidden>→</span>
+                </Link>
+              </p>
             </div>
           </div>
           <div className="mt-12 grid gap-10 md:grid-cols-3">
@@ -187,6 +192,9 @@ export default function HomePage() {
             <a href={telHref} className="text-lg font-semibold text-navy underline decoration-brass underline-offset-4">
               or call {site.phone}
             </a>
+            <Link href="/how-it-works" className="text-lg font-semibold text-navy">
+              <span className="border-b border-brass">See every step</span> <span aria-hidden>→</span>
+            </Link>
           </div>
         </Container>
       </section>
