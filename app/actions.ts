@@ -153,7 +153,11 @@ export async function submitLead(_prev: FormState, form: FormData): Promise<Form
   const emailed = await notifyMichelle({
     subject: `${subjectByKind[kind]} from ${values.name}`,
     replyTo: values.email || undefined,
-    lines: [
+    heading: `${subjectByKind[kind]} from ${values.name}`,
+    phone: values.phone || undefined,
+    email: values.email || undefined,
+    pageUrl: `${site.url}${values.source}`,
+    rows: [
       ["Name", values.name],
       ["Phone", values.phone],
       ["Email", values.email],
@@ -163,8 +167,7 @@ export async function submitLead(_prev: FormState, form: FormData): Promise<Form
       ["Timing", timing?.label],
       ["Listing", listing ? `${listing.address}${listing.sample ? " (SAMPLE)" : ""}` : null],
       ["Notes", values.notes],
-      ["Market letter", consent ? "Yes, opted in" : "No"],
-      ["Page", `${site.url}${values.source}`],
+      ["Market update", consent ? "Yes, signed up" : "No"],
     ],
   });
 
@@ -222,12 +225,14 @@ export async function subscribe(_prev: FormState, form: FormData): Promise<FormS
   }
 
   const emailed = await notifyMichelle({
-    subject: "New market letter subscriber",
-    lines: [
+    subject: "New market update sign-up",
+    heading: "New market update sign-up",
+    email: values.email,
+    pageUrl: `${site.url}${values.source}`,
+    rows: [
       ["Email", values.email],
       ["Name", values.name],
       ["Market", market ? marketLabel[market] : "Both"],
-      ["Page", `${site.url}${values.source}`],
     ],
   });
 

@@ -60,6 +60,12 @@
   }
 }
 
+@media print {
+  @page { margin: 0.5in; }
+  html { font-size: 11pt; }
+  body { background: #fff !important; padding-bottom: 0 !important; }
+}
+
 @layer components {
   .eyebrow {
     font-family: var(--font-sans);

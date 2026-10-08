@@ -6,7 +6,7 @@ import { mailHref, nav, site, telHref } from "@/lib/site";
 
 export function Header() {
   return (
-    <header className="relative z-30 border-b border-line bg-salt">
+    <header className="relative z-30 border-b border-line bg-salt print:hidden">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-navy focus:px-4 focus:py-2 focus:text-salt"

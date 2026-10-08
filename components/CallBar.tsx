@@ -5,7 +5,7 @@ import { mailHref, site, smsHref, telHref } from "@/lib/site";
 export function CallBar() {
   const side = "flex min-h-14 items-center justify-center gap-1.5 border-l border-salt/20 px-4 text-base font-semibold text-salt";
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-[1fr_auto_auto] border-t border-brass bg-navy pb-[env(safe-area-inset-bottom)] md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-[1fr_auto_auto] border-t border-brass bg-navy pb-[env(safe-area-inset-bottom)] md:hidden print:hidden">
       <a
         href={telHref}
         className="flex min-h-14 items-center justify-center gap-2 text-base font-semibold text-salt"

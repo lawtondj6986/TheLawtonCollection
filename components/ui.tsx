@@ -39,11 +39,11 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <Container className="pt-14 pb-10 sm:pt-20 sm:pb-14">
+    <Container className="pt-14 pb-10 sm:pt-20 sm:pb-14 print:px-0 print:pt-4 print:pb-3">
       <p className="eyebrow">{eyebrow}</p>
-      <h1 className="mt-4 max-w-3xl text-[2.6rem] sm:text-6xl">{title}</h1>
-      <Rule className="mt-7" />
-      {children ? <div className="mt-7 max-w-2xl text-lg text-ink/90">{children}</div> : null}
+      <h1 className="mt-4 max-w-3xl text-[2.6rem] sm:text-6xl print:mt-1 print:text-[22pt]">{title}</h1>
+      <Rule className="mt-7 print:hidden" />
+      {children ? <div className="mt-7 max-w-2xl text-lg text-ink/90 print:mt-2 print:max-w-none print:text-[10pt]">{children}</div> : null}
     </Container>
   );
 }

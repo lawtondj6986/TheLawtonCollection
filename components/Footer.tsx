@@ -22,7 +22,7 @@ function SignMark() {
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-24 bg-navy text-salt">
+    <footer className="mt-24 bg-navy text-salt print:hidden">
       <Container className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[22rem_1fr] md:gap-16">
         <div>
           <SignMark />
