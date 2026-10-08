@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata = pageMeta({
   title: "Cape Cod",
   description:
-    "Falmouth and the Upper Cape: Woods Hole, Quissett and Sippewissett, West Falmouth, Mashpee, Bourne, and Barnstable. Straight advice from Michelle Lawton, CENTURY 21 North East.",
+    "Homes in Falmouth, Woods Hole, West Falmouth, Mashpee, Bourne, and Barnstable. Local notes and straight advice from Michelle Lawton.",
   path: "/cape-cod",
 });
 

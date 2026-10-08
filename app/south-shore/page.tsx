@@ -8,7 +8,7 @@ import { site, telHref } from "@/lib/site";
 export const metadata = pageMeta({
   title: "South Shore",
   description:
-    "Easton and Greater Brockton: Easton, Brockton, West Bridgewater, East Bridgewater, Bridgewater, Stoughton, and nearby towns. Straight advice from Michelle Lawton, CENTURY 21 North East.",
+    "Homes in Easton, Brockton, the Bridgewaters, Stoughton, and nearby towns. Local notes and straight advice from Michelle Lawton.",
   path: "/south-shore",
 });
 
@@ -32,6 +32,7 @@ export default function SouthShorePage() {
               title={place.name}
               summary={place.summary}
               image={placeImages[place.slug]}
+              headingLevel={2}
             />
           ))}
         </div>

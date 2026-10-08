@@ -3,9 +3,9 @@ import { easton } from "@/content/places";
 import { pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
-  title: "Easton",
+  title: "Easton, South Shore",
   description:
-    "Buying or selling in Easton, North Easton, or South Easton? Michelle Lawton, Broker Associate with CENTURY 21 North East, gives straight advice on homes in Easton and Greater Brockton.",
+    "Buying or selling in North Easton or South Easton? Local notes and straight advice from Michelle Lawton, CENTURY 21 North East.",
   path: easton.path,
 });
 

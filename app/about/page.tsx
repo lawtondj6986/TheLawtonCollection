@@ -8,7 +8,7 @@ import { Headshot } from "@/components/Headshot";
 export const metadata = pageMeta({
   title: "About",
   description:
-    "Michelle Lawton grew up on the South Shore. A Broker Associate with CENTURY 21 North East (SRES, ABR), she helps families buy and sell in Falmouth and the Upper Cape, and in Easton and Greater Brockton.",
+    "Michelle Lawton grew up on the South Shore. Broker Associate with CENTURY 21 North East, helping families on Cape Cod and the South Shore.",
   path: "/about",
 });
 

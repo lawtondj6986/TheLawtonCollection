@@ -3,7 +3,7 @@ import { brockton } from "@/content/places";
 import { pageMeta } from "@/lib/metadata";
 
 export const metadata = pageMeta({
-  title: "Brockton",
+  title: "Brockton, South Shore",
   description:
     "Buying or selling in Brockton? First homes, two- and three-families, and family estates, with straight advice from Michelle Lawton, CENTURY 21 North East.",
   path: brockton.path,

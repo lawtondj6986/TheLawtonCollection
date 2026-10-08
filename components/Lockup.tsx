@@ -11,7 +11,6 @@ export function Lockup() {
     <Link
       href="/"
       className="inline-flex min-w-0 items-center gap-2.5 sm:gap-5"
-      aria-label={`${site.name}, ${site.brand}, home`}
     >
       <Monogram className="h-9 w-auto shrink-0 text-navy sm:h-[4.8rem]" />
       <span className="flex min-w-0 flex-col items-start">

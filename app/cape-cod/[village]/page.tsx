@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!village) return {};
   return pageMeta({
     title: village.town === village.name ? `${village.name}, Cape Cod` : `${village.name}, ${village.town}`,
-    description: `${village.summary} A local note from Michelle Lawton, and a direct line to ask about homes in ${village.name}.`,
+    description: `${village.summary} Local notes and straight advice from Michelle Lawton.`,
     path: village.path,
   });
 }

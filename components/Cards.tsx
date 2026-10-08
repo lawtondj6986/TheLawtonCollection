@@ -13,13 +13,16 @@ export function FrameCard({
   kicker,
   summary,
   image,
+  headingLevel = 3,
 }: {
+  headingLevel?: 2 | 3;
   href: string;
   title: string;
   kicker: string;
   summary: string;
   image?: { src: string; alt: string; position?: string };
 }) {
+  const Heading = headingLevel === 2 ? "h2" : "h3";
   return (
     <Link href={href} className="group block focus-visible:outline-offset-4">
       {image ? (
@@ -28,7 +31,7 @@ export function FrameCard({
       <div className="flex items-center justify-between gap-4 border-t border-brass bg-navy px-5 py-4">
         <div>
           <p className="text-[0.8rem] font-semibold tracking-[0.18em] text-brass uppercase">{kicker}</p>
-          <h3 className="mt-1 text-[1.65rem] leading-tight text-salt">{title}</h3>
+          <Heading className="mt-1 text-[1.65rem] leading-tight text-salt">{title}</Heading>
         </div>
         <Monogram className="h-8 w-auto shrink-0 text-brass" />
       </div>

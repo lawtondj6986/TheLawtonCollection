@@ -22,7 +22,7 @@ const sourceSans = Source_Sans_3({
 });
 
 const description =
-  "Michelle Lawton, Broker Associate with CENTURY 21 North East, helps families buy and sell homes in Falmouth, Mashpee, Bourne, and Barnstable, and in Easton and Greater Brockton. South Shore roots. Straight advice.";
+  "Michelle Lawton, CENTURY 21 North East, helps families buy and sell in Falmouth and the Upper Cape, and in Easton and Greater Brockton. Straight advice.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
