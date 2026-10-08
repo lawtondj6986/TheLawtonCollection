@@ -15,21 +15,21 @@ export const metadata = pageMeta({
 function Cards() {
   return (
     <div className="grid max-w-md gap-5">
-      <div className="flex aspect-[7/4] flex-col items-center justify-center border border-line bg-[#fbf9f4] px-5 text-center text-navy">
+      <div className="flex flex-col items-center justify-center border border-line bg-[#fbf9f4] px-4 py-7 text-center text-navy sm:aspect-[7/4] sm:px-5 sm:py-0">
         <Monogram className="h-12 w-auto" />
-        <p className="mt-3 font-serif text-[1.6rem] leading-none tracking-[0.12em] uppercase">{site.name}</p>
+        <p className="mt-3 font-serif text-[1.3rem] leading-none tracking-[0.1em] uppercase sm:text-[1.6rem] sm:tracking-[0.12em]">{site.name}</p>
         <p className="mt-1.5 font-serif text-[1rem] italic">{site.brand}</p>
         <span aria-hidden className="mt-2.5 block h-px w-36 bg-navy/60" />
-        <p className="mt-2.5 text-[0.8rem] tracking-[0.16em] uppercase">Cape Cod &amp; the South Shore</p>
+        <p className="mt-2.5 text-[0.75rem] tracking-[0.1em] uppercase sm:text-[0.8rem] sm:tracking-[0.16em]">Cape Cod &amp; the South Shore</p>
         <p className="mt-1 font-serif text-base italic">{site.native}</p>
       </div>
-      <div className="flex aspect-[7/4] flex-col items-center justify-center bg-navy px-5 text-center text-salt">
-        <p className="font-serif text-[2rem] leading-none tracking-[0.14em] uppercase">Real estate</p>
+      <div className="flex flex-col items-center justify-center bg-navy px-4 py-8 text-center text-salt sm:aspect-[7/4] sm:px-5 sm:py-0">
+        <p className="font-serif text-[1.6rem] leading-none tracking-[0.12em] uppercase sm:text-[2rem] sm:tracking-[0.14em]">Real estate</p>
         <span aria-hidden className="mt-3 block h-px w-16 bg-brass" />
         <a href={telHref} className="mt-3 text-[1.1rem] tracking-wide text-salt select-text hover:underline">
           {site.phone}
         </a>
-        <p className="mt-3 font-serif text-[1.35rem] text-salt/90 italic">Here when you are ready.</p>
+        <p className="mt-3 font-serif text-[1.15rem] text-salt/90 italic sm:text-[1.35rem]">Here when you are ready.</p>
       </div>
     </div>
   );
@@ -45,7 +45,7 @@ export default function ContactPage() {
         </p>
       </PageHeader>
 
-      <Container className="grid gap-14 md:grid-cols-[1fr_20rem] lg:grid-cols-[1fr_26rem] lg:gap-20">
+      <Container className="grid grid-cols-1 gap-14 md:grid-cols-[minmax(0,1fr)_20rem] lg:grid-cols-[minmax(0,1fr)_26rem] lg:gap-20">
         <div>
           <section aria-labelledby="direct" className="mb-8 border-l-2 border-brass pl-5">
             <h2 id="direct" className="text-[1.9rem]">Call or email. Michelle answers.</h2>

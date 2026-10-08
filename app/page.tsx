@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container, ButtonLink, Rule } from "@/components/ui";
 import { Monogram } from "@/components/Monogram";
+import { LcBadge } from "@/components/LcBadge";
 import { ListingCard } from "@/components/Cards";
 import { SubscribeForm } from "@/components/SubscribeForm";
 import { images } from "@/content/images";
@@ -22,22 +23,23 @@ export const metadata = {
   title: { absolute: `${site.name} · ${site.brand}` },
 };
 
-// Hero overlay, after public/brand/04-two-shores.jpg (the home composition).
+// Hero lockup on a navy panel. Michelle's notes: the name smaller ("big
+// letters are a bit overwhelming"), the lines below it large and roomy.
 function HeroLockup() {
   return (
     <div className="text-salt">
-      <Monogram className="h-16 w-auto text-brass-light md:h-20" />
-      <span aria-hidden className="mt-4 block h-px w-24 bg-brass-light/80" />
-      <h1 className="mt-4 font-serif text-[2.35rem] leading-none font-medium tracking-[0.1em] text-salt uppercase sm:text-5xl lg:text-[3.5rem]">
+      <Monogram className="h-14 w-auto text-brass md:h-16" />
+      <span aria-hidden className="mt-5 block h-px w-20 bg-brass/80" />
+      <h1 className="mt-5 font-serif text-[1.85rem] leading-tight font-medium tracking-[0.08em] text-salt uppercase sm:text-[2.2rem] lg:text-[2.1rem] xl:text-[2.3rem]">
         {site.name}
       </h1>
-      <p className="mt-2.5 font-serif text-[1.6rem] leading-tight italic sm:text-[1.9rem]">{site.brand}</p>
-      <span aria-hidden className="mt-4 block h-px w-20 bg-brass-light/80" />
-      <p className="mt-4 font-serif text-[1.4rem] leading-tight sm:text-[1.6rem]">Cape Cod and the South Shore</p>
-      <p className="mt-1.5 font-serif text-[1.4rem] leading-tight text-brass-light italic sm:text-[1.6rem]">{site.line}</p>
+      <p className="mt-3 font-serif text-[1.6rem] leading-snug italic sm:text-[1.8rem]">{site.brand}</p>
+      <span aria-hidden className="mt-5 block h-px w-16 bg-brass/80" />
+      <p className="mt-5 font-serif text-[1.45rem] leading-snug sm:text-[1.6rem]">Cape Cod and the South Shore</p>
+      <p className="mt-2 font-serif text-[1.45rem] leading-snug text-brass-light italic sm:text-[1.6rem]">{site.line}</p>
       <Link
         href="/contact"
-        className="mt-7 inline-flex min-h-12 items-center gap-3 border border-brass-light bg-navy/30 px-6 text-base font-semibold tracking-[0.14em] text-salt uppercase transition-colors hover:bg-salt hover:text-navy"
+        className="mt-8 inline-flex min-h-12 items-center gap-3 border border-brass bg-transparent px-6 text-base font-semibold tracking-[0.12em] text-salt uppercase transition-colors hover:bg-salt hover:text-navy"
       >
         Talk with Michelle <span aria-hidden>→</span>
       </Link>
@@ -45,7 +47,7 @@ function HeroLockup() {
         <a
           href={telHref}
           aria-label={`Call Michelle at ${site.phone}`}
-          className="text-[1.05rem] font-semibold tracking-wide text-salt underline decoration-brass-light/70 underline-offset-4 select-text hover:decoration-salt"
+          className="text-[1.15rem] font-semibold tracking-wide text-salt underline decoration-brass/80 underline-offset-4 select-text hover:decoration-salt"
         >
           {site.phone}
         </a>
@@ -59,37 +61,26 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero. Desktop: overlay lower left, as in the reference. Mobile: the
-          photo is cropped to the porch and the lockup sits below it on navy,
-          so the name and button never cover the house. */}
-      <section aria-label="Introduction" className="relative bg-navy">
-        <div className="relative aspect-[4/3] sm:aspect-[16/9] md:aspect-auto md:h-[540px] lg:h-[580px]">
-          <Image
-            src={images.hero.src}
-            alt={images.hero.alt}
-            fill
-            preload
-            fetchPriority="high"
-            sizes="100vw"
-            className="object-cover object-[78%_50%] md:object-[60%_30%]"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 hidden md:block"
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(11,31,51,0.72) 0%, rgba(11,31,51,0.45) 32%, rgba(11,31,51,0) 58%)",
-            }}
-          />
-          <div className="absolute inset-x-0 bottom-0 hidden md:block">
-            <Container className="pb-12 lg:pb-14">
-              <HeroLockup />
-            </Container>
+      {/* Hero. A navy panel with the lockup beside the photograph (after the
+          social frame reference); on phones the photo sits above the panel. */}
+      <section aria-label="Introduction" className="bg-navy">
+        <div className="grid lg:min-h-[34rem] lg:grid-cols-2">
+          <div className="order-2 flex items-center border-t border-brass/60 px-5 py-12 sm:px-8 sm:py-14 lg:order-1 lg:border-t-0 lg:border-r lg:px-14 xl:pl-[calc((100vw-72rem)/2+2rem)]">
+            <HeroLockup />
+          </div>
+          <div className="relative order-1 aspect-[3/2] lg:order-2 lg:aspect-auto">
+            <Image
+              src={images.hero.src}
+              alt={images.hero.alt}
+              fill
+              preload
+              fetchPriority="high"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover object-[50%_55%]"
+            />
+            <LcBadge className="absolute right-4 bottom-4 w-14 sm:w-16" />
           </div>
         </div>
-        <Container className="py-10 md:hidden">
-          <HeroLockup />
-        </Container>
       </section>
 
       {/* Proof line and second action, at the fold. */}
@@ -237,7 +228,7 @@ export default function HomePage() {
       </section>
 
       <section aria-labelledby="letter" className="pb-4">
-        <Container className="grid gap-10 border-t border-brass pt-16 md:grid-cols-2 md:items-center">
+        <Container className="grid grid-cols-1 gap-10 border-t border-brass pt-16 md:grid-cols-2 md:items-center">
           <div>
             <p className="eyebrow">Market update</p>
             <h2 id="letter" className="mt-3 text-4xl sm:text-5xl">

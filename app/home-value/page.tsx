@@ -19,7 +19,7 @@ export default function HomeValuePage() {
         </p>
       </PageHeader>
 
-      <Container className="grid gap-14 md:grid-cols-[1fr_30rem] lg:gap-20">
+      <Container className="grid grid-cols-1 gap-14 md:grid-cols-[minmax(0,1fr)_30rem] lg:gap-20">
         <div className="order-2 md:order-1">
           <h2 className="text-[2rem]">What happens next</h2>
           <ol className="mt-6 space-y-7">

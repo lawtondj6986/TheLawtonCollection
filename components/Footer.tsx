@@ -23,7 +23,7 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="mt-24 bg-navy text-salt">
-      <Container className="grid gap-12 py-16 md:grid-cols-[22rem_1fr] md:gap-16">
+      <Container className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[22rem_1fr] md:gap-16">
         <div>
           <SignMark />
           <p className="mt-6 font-serif text-xl text-salt italic">{site.line}</p>
@@ -87,7 +87,7 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-brass/40">
-        <Container className="grid gap-4 py-8 text-base leading-relaxed text-salt/75 md:grid-cols-2 md:gap-10">
+        <Container className="grid grid-cols-1 gap-4 py-8 text-base leading-relaxed text-salt/75 md:grid-cols-2 md:gap-10">
           <div className="space-y-1.5">
             <p>
               <span className="text-salt">{site.name}</span> · {site.title}, {site.brokerage}

@@ -50,7 +50,7 @@ export function PlacePage({ place }: { place: Place }) {
         )}
       </Container>
 
-      <Container className="mt-14 grid gap-14 md:grid-cols-[1fr_24rem] lg:grid-cols-[1fr_27rem] lg:gap-20">
+      <Container className="mt-14 grid gap-14 md:grid-cols-[minmax(0,1fr)_24rem] lg:grid-cols-[minmax(0,1fr)_27rem] lg:gap-20">
         <div className="space-y-12">
           <section aria-labelledby="note">
             <h2 id="note" className="text-[2rem]">A local note</h2>

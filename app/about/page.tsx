@@ -60,7 +60,7 @@ function FamilyCard() {
 export default function AboutPage() {
   return (
     <>
-      <Container className="grid gap-12 pt-14 pb-16 sm:pt-20 md:grid-cols-[1fr_22rem] md:gap-16 lg:grid-cols-[1fr_26rem]">
+      <Container className="grid grid-cols-1 gap-12 pt-14 pb-16 sm:pt-20 md:grid-cols-[minmax(0,1fr)_22rem] md:gap-16 lg:grid-cols-[minmax(0,1fr)_26rem]">
         <div>
           <p className="eyebrow">About Michelle</p>
           <h1 className="mt-4 text-[2.6rem] sm:text-6xl">{site.line}</h1>

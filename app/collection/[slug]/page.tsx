@@ -86,7 +86,7 @@ export default async function ListingPage({ params }: { params: Promise<Params> 
         ) : null}
       </Container>
 
-      <Container className="mt-14 grid gap-14 md:grid-cols-[1fr_24rem] lg:grid-cols-[1fr_27rem] lg:gap-20">
+      <Container className="mt-14 grid gap-14 md:grid-cols-[minmax(0,1fr)_24rem] lg:grid-cols-[minmax(0,1fr)_27rem] lg:gap-20">
         <div>
           <h2 className="text-[2rem]">About the house</h2>
           <p className="mt-4 text-lg text-ink/90">{listing.description}</p>
