@@ -5,6 +5,7 @@ import { Monogram } from "./Monogram";
 import { LeadForm } from "./LeadForm";
 import { marketLabel, type Place } from "@/content/places";
 import { placeImages } from "@/content/images";
+import { site } from "@/lib/site";
 
 // Shared layout for the village and town pages: a short local
 // note, who the page is for, and a form. No prices, ratings, or statistics.
@@ -12,8 +13,23 @@ export function PlacePage({ place }: { place: Place }) {
   const parent = place.market === "cape" ? { href: "/cape-cod", label: "Cape Cod" } : { href: "/south-shore", label: "South Shore" };
   const image = placeImages[place.slug];
 
+  // Breadcrumb data so search results can show "Cape Cod › Mashpee".
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: parent.label, item: `${site.url}${parent.href}` },
+      { "@type": "ListItem", position: 3, name: place.name, item: `${site.url}${place.path}` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs).replace(/</g, "\\u003c") }}
+      />
       <Container className="pt-10 sm:pt-14">
         <nav aria-label="Breadcrumb" className="text-base text-shingle-deep">
           <Link href={parent.href} className="link">
