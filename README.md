@@ -33,6 +33,8 @@ With no Supabase or Resend keys the site still runs. Form submissions are valida
 | `LEAD_TO_EMAIL` | server | Where lead notifications go. Use commas for more than one address. Defaults to `Michelle.lawton@comcast.net`. |
 | `LEAD_FROM_EMAIL` | server | Sender on a Resend-verified domain. Falls back to Resend's test sender. |
 | `RATE_LIMIT_SALT` | server | Random string that salts the hashed IP for rate limiting. |
+| `LEAD_WEBHOOK_URL` | server | Optional. Every lead is also POSTed as JSON here (a Zapier or Make webhook, or a CRM's inbound webhook), so leads can flow into any CRM or a Google Sheet. |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` / `NEXT_PUBLIC_BING_SITE_VERIFICATION` | public | Optional. Paste the verification codes from Google Search Console / Bing Webmaster Tools. |
 
 Never invent a license number, brokerage name, office hours, sold price or review count. If a value isn't on file, leave it blank and the row disappears.
 
@@ -114,7 +116,10 @@ Read leads in the Supabase table editor, or export them to CSV.
 - **Rate limit**: at most 5 submissions per salted, hashed IP in 10 minutes, counted across both tables (a market-update box ticked on another form does not count twice). The raw IP is never stored.
 - Each lead stores its `source_page` and `market` (`cape` or `south_shore`). Listing inquiries also store the listing slug.
 - The market-letter checkbox is unchecked by default. Checking it adds the email to `subscribers`.
-- If `RESEND_API_KEY` is set, Michelle gets a plain-text email at `LEAD_TO_EMAIL` with Reply-To set to the sender. Without it, the lead is still stored in Supabase and the visitor still sees the thank-you page.
+- If `RESEND_API_KEY` is set, Michelle gets a large-print email at `LEAD_TO_EMAIL` with Call, Text, and Reply buttons. Without it, the lead is still stored in Supabase and the visitor still sees the thank-you page.
+- **Auto-reply**: when `LEAD_FROM_EMAIL` is a verified Resend sender, the person who wrote in gets a short fixed confirmation ("Michelle Lawton has your note"). It never includes what they typed.
+- **Where leads come from**: the site remembers `utm_source`, `utm_medium`, `utm_campaign`, the referring site, and the landing page for the visit (browser session only) and stores them with the lead. Share links like `https://www.thelawtoncollection.com/?utm_source=facebook&utm_campaign=easton-open-house` to see which posts bring leads.
+- **CRM handoff**: set `LEAD_WEBHOOK_URL` and every lead is also sent as JSON. In Zapier: "Webhooks by Zapier → Catch Hook" → your CRM (Follow Up Boss, HubSpot, kvCORE, a Google Sheet).
 
 ## Content
 

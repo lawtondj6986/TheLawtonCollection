@@ -5,7 +5,7 @@ import { pageMeta } from "@/lib/metadata";
 export const metadata = pageMeta({
   title: "Brockton, South Shore",
   description:
-    "Buying or selling in Brockton? First homes, two- and three-families, and family estates, with straight advice from Michelle Lawton, CENTURY 21 North East.",
+    "Brockton homes for sale and local notes from Michelle Lawton, real estate agent for Greater Brockton. First homes, two- and three-families, family estates.",
   path: brockton.path,
 });
 

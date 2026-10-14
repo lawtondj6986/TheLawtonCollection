@@ -3,7 +3,8 @@
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import { getSupabase } from "@/lib/supabase";
-import { notifyMichelle } from "@/lib/email";
+import { notifyMichelle, sendAutoReply } from "@/lib/email";
+import { forwardLead } from "@/lib/forward";
 import { getIpHash, isRateLimited } from "@/lib/rate-limit";
 import { getListing } from "@/lib/listings";
 import {
@@ -64,6 +65,14 @@ export async function submitLead(_prev: FormState, form: FormData): Promise<Form
     source: asSourcePage(text(form, "source", 200)),
   };
   const consent = form.get("consent") === "on";
+  // How the visitor found the site (set by components/Attribution.tsx).
+  const attribution = {
+    utm_source: text(form, "utm_source", 60) || null,
+    utm_medium: text(form, "utm_medium", 60) || null,
+    utm_campaign: text(form, "utm_campaign", 80) || null,
+    referrer: text(form, "referrer", 120) || null,
+    landing_page: text(form, "landing", 120) || null,
+  };
 
   const errors: Record<string, string> = {};
   if (!values.name) errors.name = "Please add your name.";
@@ -118,6 +127,7 @@ export async function submitLead(_prev: FormState, form: FormData): Promise<Form
       listing_slug: listing?.slug ?? null,
       source_page: values.source,
       list_consent: consent,
+      ...attribution,
       ip_hash: ipHash,
       user_agent: await userAgent(),
     });
@@ -174,6 +184,27 @@ export async function submitLead(_prev: FormState, form: FormData): Promise<Form
   if (!stored && !emailed) {
     return { ok: false, message: unavailableMessage(), values };
   }
+
+  // CRM handoff and a quick confirmation to the person. Neither can fail
+  // the submission.
+  await Promise.all([
+    forwardLead({
+      kind,
+      purpose: purpose?.value ?? null,
+      name: values.name,
+      email: values.email || null,
+      phone: values.phone || null,
+      town: values.town || null,
+      market: market ? marketLabel[market] : null,
+      timing: timing?.label ?? null,
+      notes: values.notes || null,
+      listing: listing?.address ?? null,
+      sourcePage: `${site.url}${values.source}`,
+      marketUpdateConsent: consent,
+      ...attribution,
+    }),
+    values.email ? sendAutoReply(values.email, values.name) : Promise.resolve(false),
+  ]);
 
   redirect(`/thank-you?from=${kind}`);
 }

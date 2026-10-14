@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StructuredData } from "@/components/StructuredData";
 import { CallBar } from "@/components/CallBar";
+import { Attribution } from "@/components/Attribution";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -27,7 +28,7 @@ const description =
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} · ${site.brand}`,
+    default: `${site.name} · Real Estate on Cape Cod & the South Shore`,
     template: `%s · ${site.name}`,
   },
   description,
@@ -37,11 +38,19 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: `${site.name} · ${site.brand}`,
-    title: `${site.name} · ${site.brand}`,
+    title: `${site.name} · Real Estate on Cape Cod & the South Shore`,
     description,
     url: "/",
   },
   twitter: { card: "summary_large_image" },
+  // Paste the codes from Google Search Console / Bing Webmaster Tools into
+  // these env vars to verify the site; no code change needed.
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
+  },
 };
 
 export const viewport: Viewport = {
@@ -53,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${cormorant.variable} ${sourceSans.variable}`}>
       <body className="flex min-h-dvh flex-col pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0">
         <StructuredData />
+        <Attribution />
         <Header />
         <main id="main" className="flex-1">
           {children}

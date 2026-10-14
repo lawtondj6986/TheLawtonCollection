@@ -13,7 +13,7 @@ const sections: [string, string[]][] = [
   [
     "What this site collects",
     [
-      "When you send a form, the site stores what you typed: your name, phone, email, town, timing, notes, and which page you sent it from.",
+      "When you send a form, the site stores what you typed: your name, phone, email, town, timing, notes, and which page you sent it from. It also notes how you found the site, for example a link from Facebook or a Google search, so Michelle knows what is working.",
       "To limit spam, the site keeps a one-way scrambled version (a hash) of your internet address for a short window. Your actual IP address is not stored.",
     ],
   ],

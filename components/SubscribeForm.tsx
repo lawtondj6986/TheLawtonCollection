@@ -4,6 +4,7 @@ import { useActionState } from "react";
 import { subscribe } from "@/app/actions";
 import { initialFormState } from "@/lib/forms";
 import { Field, FormMessage, Honeypot, SubmitButton } from "./Fields";
+import { AttributionFields } from "./AttributionFields";
 
 export function SubscribeForm({ source }: { source: string }) {
   const [state, action, pending] = useActionState(subscribe, initialFormState);
@@ -14,6 +15,7 @@ export function SubscribeForm({ source }: { source: string }) {
     <form action={action} noValidate className="relative space-y-4">
       <input type="hidden" name="source" value={source} />
       <Honeypot />
+      <AttributionFields />
       <FormMessage message={state.message} />
       <Field name="sub-email" label="Email" error={e.email}>
         {(f) => (

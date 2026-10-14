@@ -5,7 +5,7 @@ import { pageMeta } from "@/lib/metadata";
 export const metadata = pageMeta({
   title: "Easton, South Shore",
   description:
-    "Buying or selling in North Easton or South Easton? Local notes and straight advice from Michelle Lawton, CENTURY 21 North East.",
+    "Easton homes for sale and local notes from Michelle Lawton, real estate agent for Easton and Greater Brockton. North Easton, South Easton, and nearby.",
   path: easton.path,
 });
 

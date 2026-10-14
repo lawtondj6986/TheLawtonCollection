@@ -20,6 +20,11 @@ create table if not exists public.leads (
   listing_slug  text,
   source_page   text not null,
   list_consent  boolean not null default false,
+  utm_source    text,
+  utm_medium    text,
+  utm_campaign  text,
+  referrer      text,
+  landing_page  text,
   ip_hash       text,
   user_agent    text,
   constraint leads_contact_present check (email is not null or phone is not null)
@@ -43,6 +48,13 @@ create table if not exists public.subscribers (
 );
 
 create index if not exists subscribers_ip_hash_idx on public.subscribers (ip_hash, updated_at);
+
+-- Columns added after the first release (safe to re-run).
+alter table public.leads add column if not exists utm_source   text;
+alter table public.leads add column if not exists utm_medium   text;
+alter table public.leads add column if not exists utm_campaign text;
+alter table public.leads add column if not exists referrer     text;
+alter table public.leads add column if not exists landing_page text;
 
 alter table public.leads enable row level security;
 alter table public.subscribers enable row level security;

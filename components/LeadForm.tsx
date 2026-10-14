@@ -5,6 +5,7 @@ import { submitLead } from "@/app/actions";
 import { initialFormState, markets, purposes, timings, type LeadKind } from "@/lib/forms";
 import type { Market } from "@/content/places";
 import { Field, FormMessage, Honeypot, SubmitButton } from "./Fields";
+import { AttributionFields } from "./AttributionFields";
 
 type Props = {
   kind: LeadKind;
@@ -33,6 +34,7 @@ export function LeadForm({ kind, source, market, listing, town, submitLabel = "S
       {listing ? <input type="hidden" name="listing" value={listing} /> : null}
       {!askMarket && market ? <input type="hidden" name="market" value={market} /> : null}
       <Honeypot />
+      <AttributionFields />
 
       <FormMessage message={state.message ?? e.form} />
 

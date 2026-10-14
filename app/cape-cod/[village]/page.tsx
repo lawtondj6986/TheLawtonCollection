@@ -18,7 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!village) return {};
   return pageMeta({
     title: village.town === village.name ? `${village.name}, Cape Cod` : `${village.name}, ${village.town}`,
-    description: `${village.summary} Local notes and straight advice from Michelle Lawton.`,
+    description: (() => {
+      const base = `${village.name} homes for sale and local notes from Michelle Lawton, real estate agent for Falmouth and the Upper Cape.`;
+      const full = `${base} ${village.summary}`;
+      return full.length <= 160 ? full : base;
+    })(),
     path: village.path,
   });
 }

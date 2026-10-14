@@ -20,7 +20,7 @@ export const metadata = {
       "Michelle Lawton, CENTURY 21 North East, helps families buy and sell in Falmouth and the Upper Cape, and in Easton and Greater Brockton. Straight advice.",
     path: "/",
   }),
-  title: { absolute: `${site.name} · ${site.brand}` },
+  title: { absolute: `${site.name} · Real Estate on Cape Cod & the South Shore` },
 };
 
 // Hero lockup on a navy panel. Michelle's notes: the name smaller ("big
@@ -56,11 +56,27 @@ function HeroLockup() {
   );
 }
 
+// The "Straight answers" section as FAQ data, so search engines can show
+// the questions under Michelle's listing. Same text as on the page.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function HomePage() {
   const listings = getListings().slice(0, 2);
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
+      />
       {/* Hero. A navy panel with the lockup beside the photograph (after the
           social frame reference); on phones the photo sits above the panel. */}
       <section aria-label="Introduction" className="bg-navy">
