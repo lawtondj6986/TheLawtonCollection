@@ -34,7 +34,7 @@ export function StructuredData() {
     ].map((name) => ({ "@type": "Place", name })),
     knowsAbout: designations.map((d) => d.name),
     award: awards.map((a) => `${a.name} (${a.years})`),
-    sameAs: [site.profileUrl],
+    sameAs: [site.profileUrl, site.facebook, site.instagram, site.linkedin].filter(Boolean),
   };
 
   return (

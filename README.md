@@ -27,6 +27,7 @@ With no Supabase or Resend keys the site still runs. Form submissions are valida
 | `NEXT_PUBLIC_PHONE_TEL` | public | Phone for `tel:` links. Defaults to `+15089421180`. |
 | `NEXT_PUBLIC_EMAIL` | public | Public email for the header menu, footer, contact and About pages. Defaults to `Michelle.lawton@comcast.net`. |
 | `NEXT_PUBLIC_LICENSE` | public | License number for the footer. Hidden when blank. |
+| `NEXT_PUBLIC_FACEBOOK_URL` / `_INSTAGRAM_URL` / `_LINKEDIN_URL` | public | Optional. Michelle's profile links; shown in the footer and given to search engines only when set. |
 | `SUPABASE_URL` | server | Supabase project URL. |
 | `SUPABASE_SERVICE_ROLE_KEY` | server | Service-role key. **Server only, never add `NEXT_PUBLIC_`.** |
 | `RESEND_API_KEY` | server | Resend key. Email is skipped when blank; leads are still stored. |
@@ -108,6 +109,17 @@ Row level security is on with no policies, so only the server (service role) can
 Read leads in the Supabase table editor, or export them to CSV.
 
 **What the forms were tested against**: the schema above loaded into Postgres 16 behind PostgREST (the API layer Supabase uses), with Supabase's `anon` and `service_role` roles. Contact, home value, town pages, and the market update all store correctly; the honeypot stores nothing; repeat sign-ups update one subscriber row; the anon key is refused by row level security; the rate limit stops a sixth submission from one IP within ten minutes.
+
+## Email from @thelawtoncollection.com (Resend + Namecheap)
+
+Lead alerts and the auto-reply are sent through Resend. They work with Resend's test sender, but to send from an address on her own domain:
+
+1. Sign up at [resend.com](https://resend.com) (free tier is enough) and create an API key. Put it in Vercel as `RESEND_API_KEY`.
+2. In Resend, **Domains → Add Domain** → `thelawtoncollection.com`. Resend shows three or four DNS records (an MX and TXT for sending, a TXT for DKIM, and optionally a DMARC TXT).
+3. In Namecheap, **Domain List → Manage → Advanced DNS**, add each record exactly as Resend shows it. Host names in Namecheap are relative: if Resend shows `send.thelawtoncollection.com`, enter the host as `send`; for `resend._domainkey.thelawtoncollection.com`, enter `resend._domainkey`. Leave the existing A and CNAME records for the website alone.
+4. Back in Resend, click **Verify**. It usually passes within an hour.
+5. In Vercel, set `LEAD_FROM_EMAIL` to `Michelle Lawton <hello@thelawtoncollection.com>` and redeploy. Replies still go to `LEAD_TO_EMAIL` (her Comcast address) because every email sets Reply-To.
+6. Check `/api/form-health`: `email` and `autoReply` should both read `on`.
 
 ## How the forms work
 

@@ -96,6 +96,22 @@ export function Footer() {
                   Michelle&rsquo;s CENTURY 21 profile<span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </li>
+              {(
+                [
+                  ["Facebook", site.facebook],
+                  ["Instagram", site.instagram],
+                  ["LinkedIn", site.linkedin],
+                ] as const
+              )
+                .filter(([, href]) => href)
+                .map(([label, href]) => (
+                  <li key={label}>
+                    <a href={href} target="_blank" rel="noopener" className="hover:text-salt hover:underline">
+                      Michelle on {label}
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </li>
+                ))}
             </ul>
           </div>
         </div>

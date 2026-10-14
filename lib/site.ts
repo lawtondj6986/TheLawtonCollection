@@ -13,6 +13,10 @@ export const site = {
   url: clean(process.env.NEXT_PUBLIC_SITE_URL) || "https://www.thelawtoncollection.com",
   brokerage: clean(process.env.NEXT_PUBLIC_BROKERAGE_NAME) || "CENTURY 21 North East",
   title: clean(process.env.NEXT_PUBLIC_AGENT_TITLE) || "Broker Associate",
+  // Shown in the footer only when set.
+  facebook: clean(process.env.NEXT_PUBLIC_FACEBOOK_URL),
+  instagram: clean(process.env.NEXT_PUBLIC_INSTAGRAM_URL),
+  linkedin: clean(process.env.NEXT_PUBLIC_LINKEDIN_URL),
   profileUrl:
     clean(process.env.NEXT_PUBLIC_C21_PROFILE_URL) ||
     "https://www.century21.com/agent/detail/ma/west-bridgewater/agents/michelle-lawton/aid-P00200000FDdr1BaOAb46gME0hPdv5uyd982dZIH",
