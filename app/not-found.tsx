@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { Container, ButtonLink, Rule } from "@/components/ui";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { CallBar } from "@/components/CallBar";
 import { site, telHref } from "@/lib/site";
 
 const links = [
@@ -11,6 +14,9 @@ const links = [
 
 export default function NotFound() {
   return (
+    <>
+      <Header />
+      <main id="main" className="flex-1 pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0">
     <Container className="py-20 text-center sm:py-24">
       <p className="eyebrow">Page not found</p>
       <h1 className="mt-4 text-5xl">That page isn&rsquo;t here.</h1>
@@ -35,5 +41,9 @@ export default function NotFound() {
         <ButtonLink href="/">Back to home</ButtonLink>
       </div>
     </Container>
+      </main>
+      <Footer />
+      <CallBar />
+    </>
   );
 }

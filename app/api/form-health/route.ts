@@ -47,6 +47,7 @@ export async function GET() {
       email: process.env.RESEND_API_KEY ? "on" : "off",
       autoReply: process.env.RESEND_API_KEY && process.env.LEAD_FROM_EMAIL ? "on" : "off",
       crmWebhook: process.env.LEAD_WEBHOOK_URL ? "on" : "off",
+      adminSignIn: process.env.RESEND_API_KEY || process.env.ADMIN_DEV_CODE_LOG === "true" ? "on" : "off",
       leadsWork: database === "ok" || Boolean(process.env.RESEND_API_KEY),
     },
     { headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" } },

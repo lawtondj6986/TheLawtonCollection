@@ -110,6 +110,17 @@ Read leads in the Supabase table editor, or export them to CSV.
 
 **What the forms were tested against**: the schema above loaded into Postgres 16 behind PostgREST (the API layer Supabase uses), with Supabase's `anon` and `service_role` roles. Contact, home value, town pages, and the market update all store correctly; the honeypot stores nothing; repeat sign-ups update one subscriber row; the anon key is refused by row level security; the rate limit stops a sixth submission from one IP within ten minutes.
 
+## Command center (/admin)
+
+Michelle's private view of leads and market-update sign-ups, built for her phone.
+
+- **Sign in** at `/admin/sign-in`: enter an allowed email, get a six-digit code by email, enter it. Codes work once and expire in 10 minutes; a signed cookie keeps you signed in for 30 days.
+- **Who can sign in**: the addresses in `ADMIN_EMAILS` (defaults to Michelle's and Dan's).
+- **Needs**: Supabase (run `supabase/schema.sql`, which adds the `admin_codes` table and the lead `status` columns) and Resend to send the code. Set `AUTH_SECRET` to any long random string in Vercel (it falls back to the Supabase key if unset).
+- **Leads**: counts for new / this week / this month / all time, filters by status and area, Call / Text / Email buttons, where each lead came from, a status (New → Contacted → Closed), a private note, and a spreadsheet download.
+- **Sign-ups**: the market-update list with a spreadsheet download.
+- `/admin` is blocked from search engines.
+
 ## Email from @thelawtoncollection.com (Resend + Namecheap)
 
 Lead alerts and the auto-reply are sent through Resend. They work with Resend's test sender, but to send from an address on her own domain:

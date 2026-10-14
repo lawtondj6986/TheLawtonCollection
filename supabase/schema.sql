@@ -49,6 +49,26 @@ create table if not exists public.subscribers (
 
 create index if not exists subscribers_ip_hash_idx on public.subscribers (ip_hash, updated_at);
 
+-- Command center: lead status and private notes (safe to re-run).
+alter table public.leads add column if not exists status       text not null default 'new'
+  check (status in ('new', 'contacted', 'closed'));
+alter table public.leads add column if not exists admin_note   text;
+alter table public.leads add column if not exists contacted_at timestamptz;
+create index if not exists leads_status_idx on public.leads (status, created_at desc);
+
+-- One-time sign-in codes for the command center. Only a hash is stored.
+create table if not exists public.admin_codes (
+  id          uuid primary key default gen_random_uuid(),
+  created_at  timestamptz not null default now(),
+  email       text not null,
+  code_hash   text not null,
+  expires_at  timestamptz not null,
+  attempts    int not null default 0,
+  used_at     timestamptz
+);
+create index if not exists admin_codes_email_idx on public.admin_codes (email, created_at desc);
+alter table public.admin_codes enable row level security;
+
 -- Columns added after the first release (safe to re-run).
 alter table public.leads add column if not exists utm_source   text;
 alter table public.leads add column if not exists utm_medium   text;

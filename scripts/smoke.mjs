@@ -49,6 +49,10 @@ for (const path of ["/michelle-lawton.vcf", "/opengraph-image", "/og?page=%2Fcap
   const res = await fetch(base + path);
   if (res.status !== 200) fail(`${res.status} ${path}`);
 }
+const admin = await fetch(base + "/admin", { redirect: "manual" });
+if (admin.status !== 307 || !(admin.headers.get("location") || "").includes("/admin/sign-in")) fail(`/admin should redirect to sign-in when signed out, got ${admin.status}`);
+const csv = await fetch(base + "/admin/leads.csv");
+if (csv.status !== 401) fail(`/admin/leads.csv should be 401 when signed out, got ${csv.status}`);
 const missing = await fetch(base + "/this-page-does-not-exist");
 if (missing.status !== 404) fail(`unknown page returned ${missing.status}, expected 404`);
 
