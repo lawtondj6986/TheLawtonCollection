@@ -28,7 +28,7 @@ const sections: [string, string[]][] = [
     "Who handles it",
     [
       "Form submissions are stored with Supabase, and notification emails are sent through Resend. Both act only as service providers for this site.",
-      "The site does not use advertising trackers.",
+      "The site counts visits with Vercel Web Analytics, which does not use cookies and does not identify you. There are no advertising trackers.",
     ],
   ],
   [

@@ -5,6 +5,8 @@ import { Footer } from "@/components/Footer";
 import { StructuredData } from "@/components/StructuredData";
 import { CallBar } from "@/components/CallBar";
 import { Attribution } from "@/components/Attribution";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -69,6 +71,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <CallBar />
+        {/* Vercel's cookie-free visitor counts and speed data. Active once
+            Analytics and Speed Insights are enabled on the Vercel project. */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

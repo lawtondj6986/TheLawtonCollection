@@ -34,9 +34,15 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
       <h1 className="mx-auto mt-8 max-w-2xl text-[2.6rem] sm:text-5xl">{title}</h1>
       <Rule className="mx-auto mt-7" />
       <p className="mx-auto mt-7 max-w-xl text-lg text-ink/90">{body}</p>
+      <p className="mx-auto mt-8 max-w-xl text-lg">
+        <a href="/michelle-lawton.vcf" download className="link font-semibold">
+          Save Michelle&rsquo;s contact to your phone
+        </a>
+        <span className="text-ink/90"> so her number is there when she calls.</span>
+      </p>
       <div className="mt-10 flex flex-wrap justify-center gap-3">
         <ButtonLink href="/" variant="secondary">Back to home</ButtonLink>
-        <ButtonLink href="/collection" variant="secondary">See homes for sale</ButtonLink>
+        <ButtonLink href="/how-it-works" variant="secondary">How buying and selling works</ButtonLink>
       </div>
     </Container>
   );
