@@ -10,7 +10,7 @@ export const site = {
   region: "Cape Cod & the South Shore",
   line: "South Shore roots. Straight advice.",
   native: "South Shore native",
-  url: clean(process.env.NEXT_PUBLIC_SITE_URL) || "https://thelawtoncollection.com",
+  url: clean(process.env.NEXT_PUBLIC_SITE_URL) || "https://www.thelawtoncollection.com",
   brokerage: clean(process.env.NEXT_PUBLIC_BROKERAGE_NAME) || "CENTURY 21 North East",
   title: clean(process.env.NEXT_PUBLIC_AGENT_TITLE) || "Broker Associate",
   profileUrl:

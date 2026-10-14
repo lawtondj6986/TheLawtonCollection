@@ -19,7 +19,7 @@ With no Supabase or Resend keys the site still runs. Form submissions are valida
 
 | Variable | Where | Purpose |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | public | Canonical URL, used for metadata, the sitemap and Open Graph. Defaults to `https://thelawtoncollection.com`. |
+| `NEXT_PUBLIC_SITE_URL` | public | Canonical URL, used for metadata, the sitemap and Open Graph. Defaults to `https://www.thelawtoncollection.com` (Vercel serves www and redirects the bare domain to it). |
 | `NEXT_PUBLIC_BROKERAGE_NAME` | public | Brokerage shown in the footer (required by Massachusetts advertising rules). Defaults to `CENTURY 21 North East`. |
 | `NEXT_PUBLIC_AGENT_TITLE` | public | Michelle's title. Defaults to `Broker Associate`. |
 | `NEXT_PUBLIC_C21_PROFILE_URL` | public | Link to her CENTURY 21 agent profile (footer, About, structured data). |
