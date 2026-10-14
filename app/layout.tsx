@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
+import localFont from "next/font/local";
 import { StructuredData } from "@/components/StructuredData";
 import { Attribution } from "@/components/Attribution";
 import { Analytics } from "@vercel/analytics/next";
@@ -7,16 +7,24 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+// Fonts ship with the site (assets/fonts, OFL licensed), so builds and
+// visitors never depend on Google Fonts.
+const cormorant = localFont({
+  src: [
+    { path: "../assets/fonts/cormorant-garamond-latin-wght-normal.woff2", style: "normal" },
+    { path: "../assets/fonts/cormorant-garamond-latin-wght-italic.woff2", style: "italic" },
+  ],
+  weight: "300 700",
   variable: "--font-cormorant",
   display: "swap",
 });
 
-const sourceSans = Source_Sans_3({
-  subsets: ["latin"],
+const sourceSans = localFont({
+  src: [
+    { path: "../assets/fonts/source-sans-3-latin-wght-normal.woff2", style: "normal" },
+    { path: "../assets/fonts/source-sans-3-latin-wght-italic.woff2", style: "italic" },
+  ],
+  weight: "200 900",
   variable: "--font-source-sans",
   display: "swap",
 });
