@@ -110,6 +110,13 @@ Read leads in the Supabase table editor, or export them to CSV.
 
 **What the forms were tested against**: the schema above loaded into Postgres 16 behind PostgREST (the API layer Supabase uses), with Supabase's `anon` and `service_role` roles. Contact, home value, town pages, and the market update all store correctly; the honeypot stores nothing; repeat sign-ups update one subscriber row; the anon key is refused by row level security; the rate limit stops a sixth submission from one IP within ten minutes.
 
+## Print and share materials (docs/)
+
+- `docs/launch-kit.md`: posts, email, text, and tagged links.
+- `docs/qr/`: QR codes in navy on cream, PNG for printing and SVG for sign shops. Each one lands on the site with a source tag: `yard-sign`, `flyer`, `open-house`, `business-card`. Print them at least 1 inch wide (3 inches or more on a yard sign rider).
+- `docs/email-signature.html`: open in a browser, copy, paste into the email app's signature settings.
+- Home screen: on an iPhone, open the site in Safari, tap Share → Add to Home Screen. The LC icon and "Lawton Collection" appear like an app. The same works for `/admin`.
+
 ## Command center (/admin)
 
 Michelle's private view of leads and market-update sign-ups, built for her phone.
