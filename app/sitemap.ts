@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/collection",
     "/home-value",
     "/how-it-works",
+    "/fine-homes",
     "/contact",
     "/market-report",
     "/privacy",

@@ -41,6 +41,11 @@ export function Footer() {
                 </li>
               ))}
               <li>
+                <Link href="/fine-homes" className="text-salt/85 hover:text-salt hover:underline">
+                  Waterfront and fine homes
+                </Link>
+              </li>
+              <li>
                 <Link href="/how-it-works" className="text-salt/85 hover:text-salt hover:underline">
                   How it works
                 </Link>

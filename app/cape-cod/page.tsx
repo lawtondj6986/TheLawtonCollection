@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container, PageHeader, ButtonLink, Rule } from "@/components/ui";
 import { FrameCard } from "@/components/Cards";
 import { Monogram } from "@/components/Monogram";
@@ -65,7 +66,10 @@ export default function CapeCodPage() {
               <p className="font-serif text-[1.9rem] leading-tight text-salt">South Shore roots · Cape Cod homes</p>
               <p className="mt-2 max-w-xl text-salt/85">
                 Selling a family place on the Cape, or moving here from off-Cape? Start with a phone call. No
-                pressure.
+                pressure.{" "}
+                <Link href="/fine-homes" className="text-salt underline decoration-brass underline-offset-4">
+                  Waterfront and fine homes
+                </Link>
               </p>
             </div>
           </div>

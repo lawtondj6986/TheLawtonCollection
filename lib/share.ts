@@ -11,6 +11,7 @@ const staticTitles: Record<string, string> = {
   "/collection": "Homes for sale",
   "/home-value": "What is my home worth?",
   "/how-it-works": "How buying and selling works",
+  "/fine-homes": "Waterfront and fine homes",
   "/contact": "Talk with Michelle",
   "/market-report": "Market update",
   "/privacy": "Privacy",

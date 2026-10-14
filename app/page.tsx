@@ -170,6 +170,12 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+          <p className="mt-12 border-t border-line pt-6 text-ink/90">
+            Selling a waterfront home or a house that has been in the family for generations?{" "}
+            <Link href="/fine-homes" className="link font-semibold">
+              There is a careful way to do it.
+            </Link>
+          </p>
         </Container>
       </section>
 
